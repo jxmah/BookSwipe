@@ -20,7 +20,18 @@ export const generateBooks = async (category, rating) => {
     return data;
 };
 
+export const getBookDetails = async (id) => { // id:et ska hämtas från generateBooks (fixar det senare)
+    const url = new URL(`${BASE_URL}/${id}?key=${API_KEY}`); // create a new URL object
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
+    return data;
+};
+
 // google books json names
+// id for book id
 // averageRating for rating
 // mainCategory for genre
 // categories for more genres ig
