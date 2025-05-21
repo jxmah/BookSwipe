@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.col-6 {
+    margin-top: 20px;
+    margin-left: 60px;
+    width: 50%;
+
+    font-family: 'Inter', sans-serif;
+    color: #644B36
+}
+
+.h4 {
+    margin-top: 30px;
+}
+
+.divider {
+    width: 50%;
+    border-top: 1px solid #644B36;
+}

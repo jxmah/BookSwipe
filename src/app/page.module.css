@@ -1,0 +1,15 @@
+.container {
+    background-color: #E3D3BA;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    background-color: #F4EEE4;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #644B36;
+    height: 80vh;
+    margin-top: 20px;
+    padding: 20px;
+}
