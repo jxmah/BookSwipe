@@ -6,9 +6,9 @@ const GenerateButtons = (buttons) => {
         <div>
             <form className="form-inline">
                 <div className={styles.row}>
-                    <div className="col">
-                        <select className="form-control" name="category" id="category">
-                            <option value="0" disabled></option>
+                    <div className="col flex">
+                        <select className={`${styles.select} ${styles.selectGenre}`} name="category" id="category">
+                            <option value="" disabled selected>Genre</option>
                             <option>Classics</option>
                             <option>Romance</option>
                             <option>Horror</option>
@@ -16,9 +16,9 @@ const GenerateButtons = (buttons) => {
                             <option>Non-fiction</option>
                         </select>
                     </div>
-                    <div className="col">
-                        <select className="form-control" name="rating" id="rating">
-                            <option value="0" disabled></option>
+                    <div className="col flex">
+                        <select className={`${styles.select} ${styles.selectRating}`} name="rating" id="rating">
+                            <option value="" disabled selected>Rating</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
