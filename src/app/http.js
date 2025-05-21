@@ -1,5 +1,5 @@
 const BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
-const API_KEY = process.env.key;
+const API_KEY = process.env.NEXT_PUBLIC_KEY;
 
 export const generateBooks = async (category, rating) => {
     let bookFilter = ''; // where the query string is stored
