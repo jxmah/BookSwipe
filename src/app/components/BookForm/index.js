@@ -1,14 +1,30 @@
 "use client";
 import styles from "./styles.module.css";
+import { generateBooks } from "@/app/http";
+import { useState } from "react";
 
-const GenerateButtons = (buttons) => {
+const BookForm = () => {
+    const [category, setCategory] = useState("");
+    const [rating, setRating] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const books = await generateBooks(category, rating);
+            console.log(books);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <div>
-            <form className="form-inline">
+            <form onSubmit={handleSubmit} method className="form-inline">
                 <div className={styles.row}>
                     <div className="col flex">
-                        <select className={`${styles.select} ${styles.selectGenre}`} name="category" id="category">
-                            <option value="" disabled selected>Genre</option>
+                        <select value={category} onChange={(e) => setCategory(e.target.value)} className={`${styles.select} ${styles.selectGenre}`}>
+                            <option value="" disabled>Genre</option>
                             <option>Classics</option>
                             <option>Romance</option>
                             <option>Horror</option>
@@ -17,8 +33,8 @@ const GenerateButtons = (buttons) => {
                         </select>
                     </div>
                     <div className="col flex">
-                        <select className={`${styles.select} ${styles.selectRating}`} name="rating" id="rating">
-                            <option value="" disabled selected>Rating</option>
+                        <select value={rating} onChange={(e) => setRating(e.target.value)} className={`${styles.select} ${styles.selectRating}`}>
+                            <option value="" disabled>Rating</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -35,4 +51,4 @@ const GenerateButtons = (buttons) => {
     );
 };
 
-export default GenerateButtons;
+export default BookForm;
