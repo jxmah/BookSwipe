@@ -2,17 +2,20 @@
 import styles from "./styles.module.css";
 import { generateBooks } from "@/app/http";
 import { useState } from "react";
+import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
     const [rating, setRating] = useState("");
+    const [books, setBooks] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const books = await generateBooks(category, rating);
-            console.log(books);
+            const fetchedBooks = await generateBooks(category, rating);
+            setBooks(fetchedBooks)
+            console.log(fetchedBooks);
         } catch (error) {
             console.error(error);
         }
@@ -47,6 +50,7 @@ const BookForm = () => {
                     </div>
                 </div>
             </form>
+            {<BookDetails books={books} />}
         </div>
     );
 };
