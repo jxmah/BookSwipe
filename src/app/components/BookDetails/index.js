@@ -1,5 +1,7 @@
 "use client";
 import styles from "./styles.module.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const BookDetails = ({ books }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,8 +21,10 @@ const BookDetails = ({ books }) => {
     const handleReject = () => {
         nextBook;
     }
+    console.log("Books data:", books);
 
     return (
+        
         <div className={`${styles.row} row`}>
             <div className={styles['col-6']}>
                 <h4 className={styles.h4}> Title:{books.title}</h4>
