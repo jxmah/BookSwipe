@@ -23,7 +23,7 @@ const BookForm = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} method className="form-inline">
+            <form onSubmit={handleSubmit} method="get" className="form-inline">
                 <div className={styles.row}>
                     <div className="col flex">
                         <select value={category} onChange={(e) => setCategory(e.target.value)} className={`${styles.select} ${styles.selectGenre}`}>
