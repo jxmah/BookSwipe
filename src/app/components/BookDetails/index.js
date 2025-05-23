@@ -4,17 +4,20 @@ import { useState, useEffect } from "react";
 
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
-
+    const [saveShownIndex, setSaveShownIndex] = useState([]);
     
     useEffect(() => {
         if (books) {
             const randomIndex = Math.floor(Math.random() * books.length);
             setRandomBook(books[randomIndex]);
+            setSaveShownIndex(previousValue => [...previousValue, randomIndex]);
+            console.log("saveShownIndex", saveShownIndex);
         }
     }, [books]);
 
-    if (!randomBook) return null;
     
+
+    if (!randomBook) return null;
     return (
         
         <div className={`${styles.row} row`}>

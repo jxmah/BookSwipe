@@ -70,7 +70,7 @@ export default function Home() {
 import styles from "./styles.module.css";
 import { generateBooks } from "@/app/http";
 import { useState } from "react";
-import BookDetails from "./components/BookDetails";
+import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
@@ -120,9 +120,7 @@ const BookForm = () => {
             </form>
             {books.length > 0 && (
                 <div>
-                    {books.map((book, index) => (
-                        <BookDetails key={book.id || index} books={book}/>
-                    ))}
+                    <BookDetails books={books}/>
                 </div>
             )}
             
@@ -171,7 +169,5 @@ const BookDetails = ({ books }) => {
         </div >
     );
 };
-
-//export default BookDetails;
 
 //export default BookDetails;
