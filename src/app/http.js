@@ -19,14 +19,24 @@ export const generateBooks = async (category, rating) => {
 
     const data = await response.json();
     console.log(data);
-    return data.items.map(book => ({
+
+    return (data.items || [])
+    .filter(book =>
+        book.id &&
+        book.volumeInfo?.title &&
+        book.volumeInfo?.authors?.[0] &&
+        book.volumeInfo?.publishedDate &&
+        book.volumeInfo?.imageLinks?.thumbnail
+    )
+    .map(book => ({
         id: book.id,
         title: book.volumeInfo.title,
         author: book.volumeInfo.authors?.[0],
         year: book.volumeInfo.publishedDate,
         cover: book.volumeInfo.imageLinks?.thumbnail || '',
         about: book.volumeInfo.description || 'No description available'
-    }));
+    })); 
+    
 };
 
 export const getBookDetails = async (id) => { // id:et ska hämtas från generateBooks (fixar det senare)
