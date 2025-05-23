@@ -10,13 +10,11 @@ const BookDetails = ({ books }) => {
             for (let i = books.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [books[i], books[j]] = [books[j], books[i]];
-        }}
-        let a = [books];
-        shuffleIndex(a);
-          let r = a[0];
-    console.log(r);
+            }
+        }, [books]);
+    }
+;
         
-    }, [books]);
 
     if (!books) return null;
     return (
