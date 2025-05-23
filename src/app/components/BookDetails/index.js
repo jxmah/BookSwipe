@@ -5,13 +5,17 @@ import { useState, useEffect } from "react";
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState([]);
 
-    useEffect(() => {
-        if (books){
-        const randomiseIndex = [...].sort(() => - Math.random());
-        setRandomBook(books[randomiseIndex]);}
-        else {
-            console.log("undefinedrandom");
-        }
+    function shuffleIndex() {
+        useEffect((books) => {
+            for (let i = books.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [books[i], books[j]] = [books[j], books[i]];
+        }}
+        let a = [books];
+        shuffleIndex(a);
+          let r = a[0];
+    console.log(r);
+        
     }, [books]);
 
     if (!books) return null;
