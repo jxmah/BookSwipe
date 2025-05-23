@@ -28,11 +28,11 @@ const BookForm = () => {
                     <div className="col flex">
                         <select value={category} onChange={(e) => setCategory(e.target.value)} className={`${styles.select} ${styles.selectGenre}`}>
                             <option value="" disabled>Genre</option>
-                            <option>Classics</option>
-                            <option>Romance</option>
-                            <option>Horror</option>
-                            <option>Mystery</option>
-                            <option>Non-fiction</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Science">Science</option>
+                            <option value="Computers">Computers</option>
+                            <option value="Art">Art</option>
+                            <option value="Education">Education</option>
                         </select>
                     </div>
                     <div className="col flex">

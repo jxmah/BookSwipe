@@ -4,7 +4,7 @@ const API_KEY = process.env.NEXT_PUBLIC_KEY;
 export const generateBooks = async (category, rating) => {
     let bookFilter = ''; // where the query string is stored
     if (category) { // if category is provided
-        bookFilter += `mainCategory:${category}`; // add it to the query string
+        bookFilter += `subject:${category}`; // add it to the query string
     }
 
     if (rating) { // if rating is provided
