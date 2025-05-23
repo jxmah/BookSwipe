@@ -13,7 +13,7 @@ const BookForm = () => {
         e.preventDefault();
 
         try {
-            const fetchedBooks = await generateBooks(category, rating);
+            const fetchedBooks = await generateBooks(category);
             setBooks(fetchedBooks)
             console.log(fetchedBooks);
         } catch (error) {
@@ -28,11 +28,12 @@ const BookForm = () => {
                     <div className="col flex">
                         <select value={category} onChange={(e) => setCategory(e.target.value)} className={`${styles.select} ${styles.selectGenre}`}>
                             <option value="" disabled>Genre</option>
-                            <option>Classics</option>
-                            <option>Romance</option>
-                            <option>Horror</option>
-                            <option>Mystery</option>
-                            <option>Non-fiction</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="science_fiction">Science Fiction</option>
+                            <option value="romance">Romance</option>
+                            <option value="mystery_and_detective_stories">Mystery</option>
+                            <option value="horror">Horror</option>
+                            <option value="thriller">Thriller</option>
                         </select>
                     </div>
                     <div className="col flex">
