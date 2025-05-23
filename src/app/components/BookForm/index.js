@@ -52,9 +52,7 @@ const BookForm = () => {
             </form>
             {books.length > 0 && (
                 <div>
-                    {books.map((book, index) => (
-                        <BookDetails key={book.id || index} books={book}/>
-                    ))}
+                    <BookDetails books={books}/>
                 </div>
             )}
             
