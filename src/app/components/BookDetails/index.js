@@ -23,6 +23,7 @@ const BookDetails = ({ books }) => {
     }
     console.log("Books data:", books);
 
+    if (!books) return null;
     return (
         
         <div className={`${styles.row} row`}>

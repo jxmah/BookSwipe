@@ -7,7 +7,7 @@ import BookDetails from "../BookDetails";
 const BookForm = () => {
     const [category, setCategory] = useState("");
     const [rating, setRating] = useState("");
-    const [books, setBooks] = useState("");
+    const [books, setBooks] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,7 +50,14 @@ const BookForm = () => {
                     </div>
                 </div>
             </form>
-            {<BookDetails books={books} />}
+            {books.length > 0 && (
+                <div>
+                    {books.map((book, index) => (
+                        <BookDetails key={book.id || index} books={book}/>
+                    ))}
+                </div>
+            )}
+            
         </div>
     );
 };
