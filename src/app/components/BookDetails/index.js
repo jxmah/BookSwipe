@@ -2,6 +2,7 @@
 import styles from "./styles.module.css";
 
 const BookDetails = ({ books }) => {
+    if (!books) return null;
     return (
         <div className={`${styles.row} row`}>
             <div className={styles['col-6']}>
