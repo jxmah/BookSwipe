@@ -1,27 +1,18 @@
 "use client";
 import styles from "./styles.module.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const BookDetails = ({ books }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [randomBook, setRandomBook] = useState([]);
 
     useEffect(() => {
-        setCurrentIndex(0);
+        if (books){
+        const randomiseIndex = [...].sort(() => - Math.random());
+        setRandomBook(books[randomiseIndex]);}
+        else {
+            console.log("undefinedrandom");
+        }
     }, [books]);
-
-    const nextBook = () => {
-        setCurrentIndex(currentIndex + 1);
-    };
-
-    const handleLike = () => {
-        nextBook;
-    }
-
-    const handleReject = () => {
-        nextBook;
-    }
-    console.log("Books data:", books);
 
     if (!books) return null;
     return (
