@@ -8,14 +8,15 @@ const BookDetails = ({ books }) => {
     
     useEffect(() => {
         if (books) {
-            const randomIndex = Math.floor(Math.random() * books.length);
+            const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
+
+            const randomIndex = getAvailableIndex[Math.floor(Math.random() * getAvailableIndex.length)];
             setRandomBook(books[randomIndex]);
+        
             setSaveShownIndex(previousValue => [...previousValue, randomIndex]);
             console.log("saveShownIndex", saveShownIndex);
         }
     }, [books]);
-
-    
 
     if (!randomBook) return null;
     return (
