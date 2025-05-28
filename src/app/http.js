@@ -1,10 +1,11 @@
 const BASE_URL = 'https://api.nytimes.com/svc/books/v3/lists/current';
 const API_KEY = process.env.NEXT_PUBLIC_KEY;
 
-export const generateBooks = async (listName) => {
+export const generateBooks = async (category) => {
 
-    const url = `${BASE_URL}/${listName}.json?api-key=${API_KEY}`;
+    const url = `${BASE_URL}/${category}.json?api-key=${API_KEY}`;
 
+    console.log("URL:", url);
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error("Failed to fetch data");
