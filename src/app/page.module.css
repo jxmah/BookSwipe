@@ -57,6 +57,7 @@
 div#listWrapper > div#createdListsWrapper > div.savedList {
     border-style: solid;
     border-color: #705143 ;
+    box-shadow: #644b3676 0px 06px 16px;
     border-width: 1.07px ;
     border-radius: 1rem;
 
@@ -65,5 +66,6 @@ div#listWrapper > div#createdListsWrapper > div.savedList {
     color: #644536;
     text-align: center;
     padding-top: 1rem;
+
     /*visibility: hidden;*/
 }
