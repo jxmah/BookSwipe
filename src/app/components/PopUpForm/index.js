@@ -12,7 +12,7 @@ const PopUpForm = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Button className={styles.createListBtn} onClick={handleShow}>
+            <Button variant="outline-secondary" className={styles.createListBtn} onClick={handleShow}>
                 Create List
             </Button>
 
