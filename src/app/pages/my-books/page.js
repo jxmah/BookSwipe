@@ -20,7 +20,9 @@ export default function MyBooks() {
           <button id={styles.createList}>Create List</button>
           <div id={styles.createdListsWrapper} >
             <div className={styles.savedList}>
-              List name
+              <h3 id={styles.listName}>List name</h3>
+              <p id={styles.bookCount}>x Books</p>
+              
             </div>
           </div>
 

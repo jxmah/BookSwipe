@@ -69,3 +69,12 @@ div#listWrapper > div#createdListsWrapper > div.savedList {
 
     /*visibility: hidden;*/
 }
+
+#listName {
+    margin-top: 0.2rem;
+    font-size: 1.5rem;
+}
+
+#bookCount {
+    margin-top: 1rem;
+}
