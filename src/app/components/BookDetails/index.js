@@ -23,19 +23,19 @@ const BookDetails = ({ books }) => {
         
         <div>
             <div className={styles.bookLayout}>
-                <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/>
-            <div className={styles.bookCover}>
-                <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
-            </div>
-                <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>
-            </div>
-            <div className={styles.details}>
-                <h4 className={styles.h4}> Title:{randomBook.title}</h4>
-                <h4 className={styles.h4}>Author:{randomBook.author}</h4>
-                <h4 className={styles.h4}>Year:{randomBook.year}</h4>
-                <hr className={styles.divider} />
-                <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
-                <p>{randomBook.about}</p>
+                <div className={styles.details}>
+                    <h4 className={styles.h4}> Title:{randomBook.title}</h4>
+                    <h4 className={styles.h4}>Author:{randomBook.author}</h4>
+                    <h4 className={styles.h4}>Year:{randomBook.year}</h4>
+                    <hr className={styles.divider} />
+                    <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
+                    <p>{randomBook.about}</p>
+                </div>
+                <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
+                <div className={styles.bookCover}>
+                    <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
+                </div>
+                <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>  
             </div>
         </div>
     );
