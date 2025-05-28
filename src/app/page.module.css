@@ -31,10 +31,6 @@
     margin-right: 2rem;
 }
 
-#listWrapper {
-    display: flex;
-}
-
 #createList {
     text-decoration: none;
     color: #644536;
@@ -46,6 +42,26 @@
     padding: 5px 20px;
     min-width: 150px;
     text-align: center;
+    display: block;
     margin: auto;
     margin-top: 1.7rem;
+}
+
+#createdListsWrapper {
+    display: flex;
+    
+    margin: 3.5rem 2rem;
+}
+
+div#listWrapper > div#createdListsWrapper > div.savedList {
+    border-style: solid;
+    border-color: #705143 ;
+    border-width: 1.07px ;
+    border-radius: 1rem;
+
+    width: 25%;
+    height: 7rem;
+    color: #644536;
+    text-align: center;
+    padding-top: 1rem;
 }
