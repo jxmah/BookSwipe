@@ -9,13 +9,20 @@ const BookDetails = ({ books }) => {
     const [likedBooks, setLikedBooks] = useState([]);
     
     const handlers = useSwipeable({
-        onSwipedLeft: () => handleSwipe("left"),
-        onSwipedRight: () => handleSwipe("right"),
+        onSwipedLeft: () => {
+            console.log("swiped left");
+            handleSwipe("left");
+        },
+        onSwipedRight: () => {
+            console.log("swiped right");
+            handleSwipe("right");
+        },
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
 
     const handleSwipe = (direction) => {
+        console.log("swiped: ", direction);
         if (!randomBook) return;
 
         if (direction === "right") {
@@ -54,13 +61,19 @@ const BookDetails = ({ books }) => {
                     <h4 className={`${styles.h4} ${styles.about}`}>About: <p className={styles.p}>{randomBook.about}</p></h4>
                     <p></p>
                 </div>
-                <div className={styles.swipe} {...handlers}>
-                    <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
-                    <div className={styles.bookCover} >
-                        <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
+                <div>
+                    <div {...handlers} className={styles.swipeArea}>
+                    <div className={styles.swipe}>
+                        <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
+                        <div className={styles.bookCover} >
+                            <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
+                        </div>
+                        <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>  
                     </div>
-                    <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>  
                 </div>
+                </div>
+                
+                
                 
             </div>
         </div>
