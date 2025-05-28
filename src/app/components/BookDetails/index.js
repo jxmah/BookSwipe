@@ -15,15 +15,29 @@ const BookDetails = ({ books }) => {
         trackMouse: true
     });
 
-    useEffect(() => {
-        if (books) {
-            const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
+    const handleSwipe = (direction) => {
+        if (!randomBook) return;
 
-            const randomIndex = getAvailableIndex[Math.floor(Math.random() * getAvailableIndex.length)];
+        if (direction === "right") {
+            setLikedBooks(prev => [...prev, randomBook]);
+        }
+
+        const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
+        if (getAvailableIndex.length === 0) {
+            setRandomBook(null);
+            return;
+        }
+        const randomIndex = getAvailableIndex[Math.floor(Math.random() * getAvailableIndex.length)];
             setRandomBook(books[randomIndex]);
-        
             setSaveShownIndex(previousValue => [...previousValue, randomIndex]);
             console.log("saveShownIndex", saveShownIndex);
+    };
+
+    useEffect(() => {
+        if (books && books.length > 0 && randomBook === null) {
+            const randomIndex = Math.floor(Math.random() * books.length);
+            setRandomBook(books[randomIndex]);
+            setSaveShownIndex([randomIndex]);
         }
     }, [books]);
 
@@ -40,12 +54,12 @@ const BookDetails = ({ books }) => {
                     <h4 className={`${styles.h4} ${styles.about}`}>About: <p className={styles.p}>{randomBook.about}</p></h4>
                     <p></p>
                 </div>
-                <div className={styles.swipe}>
+                <div className={styles.swipe} {...handlers}>
                     <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
-                <div className={styles.bookCover}>
-                    <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
-                </div>
-                <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>  
+                    <div className={styles.bookCover} >
+                        <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
+                    </div>
+                    <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>  
                 </div>
                 
             </div>
