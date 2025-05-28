@@ -6,7 +6,7 @@ import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
-    const [rating, setRating] = useState("");
+    const [rating, setDecade] = useState("");
     const [books, setBooks] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -37,13 +37,13 @@ const BookForm = () => {
                         </select>
                     </div>
                     <div className="col flex">
-                        <select value={rating} onChange={(e) => setRating(e.target.value)} className={`${styles.select} ${styles.selectRating}`}>
-                            <option value="" disabled>Rating</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                        <select value={rating} onChange={(e) => setDecade(e.target.value)} className={`${styles.select} ${styles.selectDecade}`}>
+                            <option value="" disabled>Decade</option>
+                            <option value="2020">2020</option>
+                            <option value="2010">2010</option>
+                            <option value="2000">2000</option>
+                            <option value="1990">1990</option>
+                            <option value="1980">1980</option>
                         </select>
                     </div>
                     <div className="col">
