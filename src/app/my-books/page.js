@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./styles.module.css";
+import styles from "../page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link'
 import Header from "../components/header";
