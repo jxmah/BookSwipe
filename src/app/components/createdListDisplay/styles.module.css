@@ -1,4 +1,3 @@
-/*start mall för saved list*/
 div.createdListsWrapper{
     margin:2rem;
 }
@@ -14,9 +13,9 @@ div.createdListsWrapper > div.savedList {
     height: 7rem;
     color: #644536;
     text-align: center;
-    padding-top: 1rem;
+    padding: 1rem;
 
-    /*visibility: hidden;*/
+    /*visibility: hidden; --- for future use, before fetched information*/
 }
 
 .listName {
