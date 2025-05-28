@@ -6,26 +6,24 @@
     align-items: center;
     gap: 2rem;
     margin: 2rem auto;
-    flex-wrap: wrap;
 }
 
-.bookCover {
-    order: 2;
-}
-
-.details {
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
+.bookCover img {
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .row {
     height: 90%;
 }
 
-.col-6 {
+.details {
     font-family: 'Inter', sans-serif;
     color: #644B36;
+    text-align: center;
+    margin-top: 2rem;
 }
 
 .h4 {

@@ -21,17 +21,14 @@ const BookDetails = ({ books }) => {
     if (!randomBook) return null;
     return (
         
-        <div className={styles.bookLayout}>
-            <div className={styles.swipeBtn}>
-                <img src="./images/x.png" alt="Dislike"></img>
-            </div>
+        <div>
+            <div className={styles.bookLayout}>
+                <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/>
             <div className={styles.bookCover}>
                 <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
             </div>
-            <div className={styles.swipeBtn}>
-                <img src="./images/heart.png" alt="Like"></img>
+                <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>
             </div>
-
             <div className={styles.details}>
                 <h4 className={styles.h4}> Title:{randomBook.title}</h4>
                 <h4 className={styles.h4}>Author:{randomBook.author}</h4>
@@ -40,7 +37,7 @@ const BookDetails = ({ books }) => {
                 <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
                 <p>{randomBook.about}</p>
             </div>
-        </div >
+        </div>
     );
 };
 
