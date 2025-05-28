@@ -6,7 +6,15 @@ import { useSwipeable } from 'react-swipeable';
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
     const [saveShownIndex, setSaveShownIndex] = useState([]);
+    const [likedBooks, setLikedBooks] = useState([]);
     
+    const handlers = useSwipeable({
+        onSwipedLeft: () => handleSwipe("left"),
+        onSwipedRight: () => handleSwipe("right"),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    });
+
     useEffect(() => {
         if (books) {
             const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
