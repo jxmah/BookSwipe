@@ -1,0 +1,28 @@
+div.createdListsWrapper{
+    margin:2rem;
+}
+
+div.createdListsWrapper > div.savedList {
+    border-style: solid;
+    border-color: #705143 ;
+    box-shadow: #644b3676 0px 06px 16px;
+    border-width: 1.07px ;
+    border-radius: 1rem;
+
+    width: 25%;
+    height: 7rem;
+    color: #644536;
+    text-align: center;
+    padding: 1rem;
+
+    /*visibility: hidden; --- for future use, before fetched information*/
+}
+
+.listName {
+    margin-top: 0.2rem;
+    font-size: 1.5rem;
+}
+
+.bookCount {
+    margin-top: 1rem;
+}

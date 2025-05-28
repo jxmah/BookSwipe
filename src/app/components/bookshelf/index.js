@@ -2,8 +2,6 @@
 import styles from "./styles.module.css";
 import { useEffect } from "react";
 
-
-
 const Bookshelf = () => {
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");

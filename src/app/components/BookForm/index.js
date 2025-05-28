@@ -6,14 +6,14 @@ import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
-    const [rating, setRating] = useState("");
+    //const [rating, setRating] = useState("");
     const [books, setBooks] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const fetchedBooks = await generateBooks(category, rating);
+            const fetchedBooks = await generateBooks(category);
             setBooks(fetchedBooks)
             console.log(fetchedBooks);
         } catch (error) {
@@ -28,23 +28,15 @@ const BookForm = () => {
                     <div className="col flex">
                         <select value={category} onChange={(e) => setCategory(e.target.value)} className={`${styles.select} ${styles.selectGenre}`}>
                             <option value="" disabled>Genre</option>
-                            <option>Classics</option>
-                            <option>Romance</option>
-                            <option>Horror</option>
-                            <option>Mystery</option>
-                            <option>Non-fiction</option>
+                            <option value="hardcover-fiction">Fiction</option>
+                            <option value="hardcover-nonfiction">Non-fiction</option>
+                            <option value="young-adult-hardcover">Young adult</option>
+                            <option value="graphic-books-and-manga">Manga</option>
+                            <option value="paperback-nonfiction">Paperback</option>
+                            <option value="advice-how-to-and-miscellaneous">Advice</option>
                         </select>
                     </div>
-                    <div className="col flex">
-                        <select value={rating} onChange={(e) => setRating(e.target.value)} className={`${styles.select} ${styles.selectRating}`}>
-                            <option value="" disabled>Rating</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
+                    
                     <div className="col">
                         <input className={styles.btn} type="submit" value="Generate" />
                     </div>

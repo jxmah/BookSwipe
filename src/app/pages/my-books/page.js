@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Header from "../../components/header";
 import Bookshelf from "../../components/bookshelf";
 import PopUpForm from "../../components/PopUpForm";
+import CreatedListDisplay from "../../components/createdListDisplay";
 
 export default function MyBooks() {
   return (
@@ -13,11 +14,11 @@ export default function MyBooks() {
       <div id={styles.main} className="container">
         <div id={styles.wrapper}>
           <Bookshelf></Bookshelf>
-
           <div id={styles.shelf}></div>
         </div>
         <div id={styles.listWrapper}>
           <PopUpForm></PopUpForm>
+          <CreatedListDisplay></CreatedListDisplay>
         </div>
 
       </div>
