@@ -15,6 +15,9 @@ export const generateBooks = async (category, decade) => {
     return data.works.filter(book => {
         const year = book.first_publish_year;
         return (
+            book.title &&
+            book.authors?.[0]?.name &&
+            book.cover_id &&
             year &&
             year >= parseInt(decade) &&
             year < parseInt(decade) + 10
@@ -22,9 +25,9 @@ export const generateBooks = async (category, decade) => {
     }).map(book => ({
         id: book.key,
         title: book.title,
-        author: book.authors?.[0]?.name || "Unknown",
-        year: book.first_publish_year || "N/A",
-        cover: book.cover_id ? `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg` : null,
+        author: book.authors[0].name,
+        year: book.first_publish_year,
+        cover: `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`,
         // about:
     }));
     
