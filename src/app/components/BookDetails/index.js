@@ -21,21 +21,24 @@ const BookDetails = ({ books }) => {
     if (!randomBook) return null;
     return (
         
-        <div className={`${styles.row} row`}>
-            <div className={styles['col-6']}>
-            <h4 className={styles.h4}> Title:{randomBook.title}</h4>
-            <h4 className={styles.h4}>Author:{randomBook.author}</h4>
-            <h4 className={styles.h4}>Year:{randomBook.year}</h4>
-            <hr className={styles.divider} />
-            <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
-            <p>{randomBook.about}</p>
-            </div >
-            <div className={`${styles['col-4']} col-4`}>
+        <div className={styles.bookLayout}>
+            <div className={styles.swipeBtn}>
+                <img src="./images/x.png" alt="Dislike"></img>
+            </div>
+            <div className={styles.bookCover}>
                 <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
             </div>
-            <div className={`${styles['col-2']} col-2`}>
-                <img className={styles.swipeBtn} src="./images/heart.png"></img>
-                <img className={styles.swipeBtn} src="./images/x.png"></img>
+            <div className={styles.swipeBtn}>
+                <img src="./images/heart.png" alt="Like"></img>
+            </div>
+
+            <div className={styles.details}>
+                <h4 className={styles.h4}> Title:{randomBook.title}</h4>
+                <h4 className={styles.h4}>Author:{randomBook.author}</h4>
+                <h4 className={styles.h4}>Year:{randomBook.year}</h4>
+                <hr className={styles.divider} />
+                <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
+                <p>{randomBook.about}</p>
             </div>
         </div >
     );
