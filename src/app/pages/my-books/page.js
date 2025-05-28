@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link'
 import Header from "../../components/header";
 import Bookshelf from "../../components/bookshelf";
+import PopUpForm from "../../components/PopUpForm";
 
 export default function MyBooks() {
   return (
@@ -15,9 +16,8 @@ export default function MyBooks() {
 
           <div id={styles.shelf}></div>
         </div>
-
         <div id={styles.listWrapper}>
-          <button id={styles.createList}>Create List</button>
+          <PopUpForm></PopUpForm>
         </div>
 
       </div>
