@@ -1,6 +1,7 @@
 "use client";
 import styles from "./styles.module.css";
 import { useState, useEffect } from "react";
+import { useSwipeable } from 'react-swipeable';
 
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
