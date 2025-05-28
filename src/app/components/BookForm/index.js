@@ -6,14 +6,14 @@ import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
-    const [rating, setDecade] = useState("");
+    const [decade, setDecade] = useState("");
     const [books, setBooks] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const fetchedBooks = await generateBooks(category);
+            const fetchedBooks = await generateBooks(category, decade);
             setBooks(fetchedBooks)
             console.log(fetchedBooks);
         } catch (error) {
@@ -37,7 +37,7 @@ const BookForm = () => {
                         </select>
                     </div>
                     <div className="col flex">
-                        <select value={rating} onChange={(e) => setDecade(e.target.value)} className={`${styles.select} ${styles.selectDecade}`}>
+                        <select value={decade} onChange={(e) => setDecade(e.target.value)} className={`${styles.select} ${styles.selectDecade}`}>
                             <option value="" disabled>Decade</option>
                             <option value="2020">2020</option>
                             <option value="2010">2010</option>

@@ -1,6 +1,6 @@
 const BASE_URL = 'https://openlibrary.org';
 
-export const generateBooks = async (category) => {
+export const generateBooks = async (category, decade) => {
     
     const url = `${BASE_URL}/subjects/${category.toLowerCase()}.json?limit=10`; // create a new URL object
     const response = await fetch(url);
@@ -12,7 +12,14 @@ export const generateBooks = async (category) => {
     const data = await response.json();
     console.log(data);
 
-    return data.works.map(book => ({
+    return data.works.filter(book => {
+        const year = book.first_publish_year;
+        return (
+            year &&
+            year >= parseInt(decade) &&
+            year < parseInt(decade) + 10
+        );
+    }).map(book => ({
         id: book.key,
         title: book.title,
         author: book.authors?.[0]?.name || "Unknown",
