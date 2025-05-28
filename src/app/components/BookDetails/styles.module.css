@@ -2,8 +2,8 @@
 
 .bookLayout {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 2rem;
     margin: 2rem auto;
 }
@@ -22,8 +22,21 @@
 .details {
     font-family: 'Inter', sans-serif;
     color: #644B36;
-    text-align: center;
+    text-align: left;
     margin-top: 2rem;
+    flex: 1;
+}
+
+.swipe {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 4rem;
+}
+
+.p {
+    font-size: medium;
 }
 
 .h4 {
