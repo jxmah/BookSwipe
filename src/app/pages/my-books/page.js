@@ -16,14 +16,16 @@ export default function MyBooks() {
   const saveLikedBooks = localStorage.getItem("likedBooks")
   
 
-  const handleMasterList = () => {
-    const updateMasterList = [...masterList, saveLikedBooks];
-    setMasterList(updateMasterList);
-    localStorage.setItem("masterList", masterList);
 
-  }
+  const updateMasterList = [...masterList, ...saveLikedBooks];
+  setMasterList(updateMasterList);
+  localStorage.setItem("masterList", JSON.stringify(updateMasterList));
+  
+  console.log("trial get likedbooks from ls", updateMasterList)
+  return
+ 
 
-    console.log("trial get likedbooks from ls", updateMasterList)
+
 
 
   const handleAddList = (newListName) => {
