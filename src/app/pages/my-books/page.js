@@ -4,10 +4,10 @@ import { useState } from "react";
 import styles from "../../page.module.css";;
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link'
-import Header from "../../components/header";
-import Bookshelf from "../../components/bookshelf";
+import Header from "../../components/Header";
+import Bookshelf from "../../components/Bookshelf";
 import PopUpForm from "../../components/PopUpForm";
-import CreatedListDisplay from "../../components/createdListDisplay";
+import ListDisplay from "../../components/ListDisplay";
 
 export default function MyBooks() {
   const [lists, setLists] = useState([]);
@@ -23,7 +23,7 @@ export default function MyBooks() {
         <Bookshelf></Bookshelf>
         <div id={styles.shelf}></div>
         <PopUpForm onAddList={handleAddList}></PopUpForm>
-        <CreatedListDisplay lists={lists}></CreatedListDisplay>
+        <ListDisplay lists={lists}></ListDisplay>
       </div>
     </div>
   );

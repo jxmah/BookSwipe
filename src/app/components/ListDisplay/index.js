@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import styles from "./styles.module.css";
 
-const CreatedListDisplay = ({ lists = [] }) => {
+const ListDisplay = ({ lists = [] }) => {
     return (
         <div className={styles.createdListsWrapper}>
             <ul className={styles.savedList}>
@@ -17,4 +17,4 @@ const CreatedListDisplay = ({ lists = [] }) => {
     );
 };
 
-export default CreatedListDisplay;
+export default ListDisplay;

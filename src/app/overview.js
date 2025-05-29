@@ -49,20 +49,20 @@ export const getBookDetails = async (id) => { // id:et ska hämtas från generat
 import Image from "next/image";
 import styles from "./page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/header";
+import Header from "./components/Header";
 import BookForm from "./components/BookForm";
 import BookDetails from "./components/BookDetails";
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Header></Header>
-      <div id={styles.main} className="container">
-        <BookForm></BookForm>
-        <BookDetails></BookDetails>
-      </div>
-    </div>
-  );
+    return (
+        <div className={styles.container}>
+            <Header></Header>
+            <div id={styles.main} className="container">
+                <BookForm></BookForm>
+                <BookDetails></BookDetails>
+            </div>
+        </div>
+    );
 }
 
 //-------------------------------------------------bookForm
@@ -120,10 +120,10 @@ const BookForm = () => {
             </form>
             {books.length > 0 && (
                 <div>
-                    <BookDetails books={books}/>
+                    <BookDetails books={books} />
                 </div>
             )}
-            
+
         </div>
     );
 };
@@ -138,7 +138,7 @@ import { useState, useEffect } from "react";
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
 
-    
+
     useEffect(() => {
         if (books) {
             const randomIndex = Math.floor(Math.random() * books.length);
@@ -147,20 +147,20 @@ const BookDetails = ({ books }) => {
     }, [books]);
 
     if (!randomBook) return null;
-    
+
     return (
-        
+
         <div className={`${styles.row} row`}>
             <div className={styles['col-6']}>
-            <h4 className={styles.h4}> Title:{randomBook.title}</h4>
-            <h4 className={styles.h4}>Author:{randomBook.author}</h4>
-            <h4 className={styles.h4}>Year:{randomBook.year}</h4>
-            <hr className={styles.divider} />
-            <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
-            <p>{randomBook.about}</p>
+                <h4 className={styles.h4}> Title:{randomBook.title}</h4>
+                <h4 className={styles.h4}>Author:{randomBook.author}</h4>
+                <h4 className={styles.h4}>Year:{randomBook.year}</h4>
+                <hr className={styles.divider} />
+                <h4 className={`${styles.h4} ${styles.about}`}>About:</h4>
+                <p>{randomBook.about}</p>
             </div >
             <div className={`${styles['col-4']} col-4`}>
-                <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
+                <img className={styles.cover} src={randomBook.cover} alt={randomBook.title} />
             </div>
             <div className={`${styles['col-2']} col-2`}>
                 <img className={styles.swipeBtn} src="./images/heart.png"></img>
