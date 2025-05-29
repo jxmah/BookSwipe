@@ -11,7 +11,7 @@ import ListDisplay from "../../components/ListDisplay";
 
 export default function MyBooks() {
   const [lists, setLists] = useState([]);
-  const [masterList, setMasterList] = useState([]);
+  /*const [masterList, setMasterList] = useState([]);
 
   const saveLikedBooks = localStorage.getItem("likedBooks")
   
@@ -21,8 +21,18 @@ export default function MyBooks() {
   setMasterList(updateMasterList);
   localStorage.setItem("masterList", JSON.stringify(updateMasterList));
   
-  console.log("trial get likedbooks from ls", updateMasterList)
-  return
+  console.log("trial get likedbooks from ls", JSON.parse(updateMasterList))
+  return*/
+
+  const [masterList, setMasterList] = useState([]);
+  const saveLikedBooks = localStorage.getItem("likedBooks");
+  const updateMasterList = JSON.parse(saveLikedBooks)
+  console.log(saveLikedBooks)
+
+  localStorage.setItem("masterList", JSON.stringify(updateMasterList));
+
+
+
  
 
 
