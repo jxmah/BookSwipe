@@ -23,7 +23,11 @@ const BookDetails = ({ books }) => {
 
     const handleSwipe = (direction) => {
         if (direction === "right") {
-            setLikedBooks(prev => [...prev, randomBook]);
+            const updatedLikedBooks = [...likedBooks, randomBook];
+            setLikedBooks(updatedLikedBooks);
+            localStorage.setItem("likedBooks", JSON.stringify(updatedLikedBooks));
+
+            console.log("liked books: ", updatedLikedBooks);
         }
         showNextBook();
     };
