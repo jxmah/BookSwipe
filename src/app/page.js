@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/header";
+import Header from "./components/Header";
 import BookForm from "./components/BookForm";
 import BookDetails from "./components/BookDetails";
 
