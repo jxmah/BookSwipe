@@ -43,7 +43,7 @@ const BookDetails = ({ books }) => {
         }
     }, [books]);
 
-    if ((!books || books.length === 0) && !randomBook){
+    if (!books || books.length === 0) {
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
@@ -63,8 +63,7 @@ const BookDetails = ({ books }) => {
         );
     }
     if (randomBook) {
-        const getClass = styles.chooseCategory
-        getClass = "visibility: hidden;"
+
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
