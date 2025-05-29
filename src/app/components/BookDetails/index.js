@@ -1,57 +1,41 @@
 "use client";
 import styles from "./styles.module.css";
 import { useState, useEffect } from "react";
-import { useSwipeable } from 'react-swipeable';
+import { motion } from 'framer-motion';
 
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
     const [saveShownIndex, setSaveShownIndex] = useState([]);
     const [likedBooks, setLikedBooks] = useState([]);
     
-    const handlers = useSwipeable({
-        onSwipedLeft: () => {
-            console.log("swiped left");
-            handleSwipe("left");
-        },
-        onSwipedRight: () => {
-            console.log("swiped right");
-            handleSwipe("right");
-        },
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true
-    });
-
-    const handleSwipe = (direction) => {
-        console.log("swiped: ", direction);
-        if (!randomBook) return;
-
-        if (direction === "right") {
-            setLikedBooks(prev => [...prev, randomBook]);
-        }
-
+    const showNextBook = () => {
         const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
+        
         if (getAvailableIndex.length === 0) {
             setRandomBook(null);
             return;
         }
         const randomIndex = getAvailableIndex[Math.floor(Math.random() * getAvailableIndex.length)];
-            setRandomBook(books[randomIndex]);
-            setSaveShownIndex(previousValue => [...previousValue, randomIndex]);
-            console.log("saveShownIndex", saveShownIndex);
+        setRandomBook(books[randomIndex]);
+        setSaveShownIndex(previousValue => [...previousValue, randomIndex]);
+        console.log("saveShownIndex", saveShownIndex);
+    };
+
+    const handleSwipe = (direction) => {
+        if (direction === "right") {
+            setLikedBooks(prev => [...prev, randomBook]);
+        }
+        showNextBook();
     };
 
     useEffect(() => {
         if (books && books.length > 0 && randomBook === null) {
-            const randomIndex = Math.floor(Math.random() * books.length);
-            setRandomBook(books[randomIndex]);
-            setSaveShownIndex([randomIndex]);
+            showNextBook();
         }
     }, [books]);
 
     if (!randomBook) return null;
     return (
-        
-        <div>
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
                     <h4 className={styles.h4}> Title: {randomBook.title}</h4>
@@ -61,22 +45,37 @@ const BookDetails = ({ books }) => {
                     <h4 className={`${styles.h4} ${styles.about}`}>About: <p className={styles.p}>{randomBook.about}</p></h4>
                     <p></p>
                 </div>
-                <div>
-                    <div {...handlers} className={styles.swipeArea}>
-                    <div className={styles.swipe}>
-                        <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
-                        <div className={styles.bookCover} >
-                            <img className={styles.cover} src={randomBook.cover} alt={randomBook.title}/>
-                        </div>
-                        <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>  
-                    </div>
+                
+                <div className={styles.swipe}>
+                    <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
+                    <motion.div
+                        className={styles.bookCover}
+                        drag="x"
+                        dragConstraints={{ left: -300, right: 300}}
+                        dragElastic={0.3}
+                        style={{ cursor: "grab" }}
+                        key={randomBook.id}
+                        initial={{ x: 0 }}
+                        animate={{ x: 0 }}
+                        onDragEnd={(_, info) => {
+                            console.log("offset x: ", info.offset.x);
+                            if (info.offset.x > 30) {
+                                handleSwipe("right");
+                            } else if (info.offset.x < -30) {
+                                handleSwipe("left");
+                            }
+                        }}
+                        >
+                        <img
+                            className={styles.cover}
+                            src={randomBook.cover} 
+                            alt={randomBook.title}
+                            draggable={false}
+                        />
+                    </motion.div>
+                    <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>                      
                 </div>
-                </div>
-                
-                
-                
             </div>
-        </div>
     );
 };
 
