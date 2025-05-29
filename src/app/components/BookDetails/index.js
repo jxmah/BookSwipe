@@ -43,11 +43,11 @@ const BookDetails = ({ books }) => {
         }
     }, [books]);
 
-    if (saveShownIndex = true){
+    if ((!books || books.length === 0) && !randomBook){
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
-                    <h4>Välj en kategori för att börja bläddra bland böcker</h4>
+                    <h4 className={styles.chooseCategory}>Välj en kategori för att börja bläddra bland böcker</h4>
                 </div>
             </div>
         );
@@ -63,6 +63,8 @@ const BookDetails = ({ books }) => {
         );
     }
     if (randomBook) {
+        const getClass = styles.chooseCategory
+        getClass = "visibility: hidden;"
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>

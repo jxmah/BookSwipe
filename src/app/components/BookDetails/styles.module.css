@@ -49,7 +49,7 @@
 }
 
 .chooseCategory {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .divider {
