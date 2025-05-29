@@ -23,10 +23,19 @@ const BookDetails = ({ books }) => {
 
     const handleSwipe = (direction) => {
         if (direction === "right") {
-            setLikedBooks(prev => [...prev, randomBook]);
+            const updatedLikedBooks = [...likedBooks, randomBook];
+            setLikedBooks(updatedLikedBooks);
+            localStorage.setItem("likedBooks", JSON.stringify(updatedLikedBooks));
+
+            console.log("liked books: ", updatedLikedBooks);
         }
         showNextBook();
     };
+
+    useEffect(() => {
+        const savedBooks = JSON.parse(localStorage.getItem("likedBooks")) || [];
+        setLikedBooks(savedBooks);
+    }, []);
 
     useEffect(() => {
         if (books && books.length > 0 && randomBook === null) {
@@ -34,8 +43,27 @@ const BookDetails = ({ books }) => {
         }
     }, [books]);
 
-    if (!randomBook) return null;
-    return (
+    if ((!books || books.length === 0) && !randomBook){
+        return (
+            <div className={styles.bookLayout}>
+                <div className={styles.details}>
+                    <h4>Välj en kategori för att börja bläddra bland böcker</h4>
+                </div>
+            </div>
+        );
+    }
+    if (saveShownIndex.length === books.length) {
+        return (
+            <div className={styles.bookLayout}>
+                <div className={styles.details}>
+                    <h4>Du har bläddrat igenom alla böcker inom denna kategorin</h4>
+                    <p>Prova gärna en annan kategori</p>
+                </div>
+            </div>
+        );
+    }
+    if (randomBook) {
+        return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
                     <h4 className={styles.h4}> Title: {randomBook.title}</h4>
@@ -76,7 +104,8 @@ const BookDetails = ({ books }) => {
                     <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>                      
                 </div>
             </div>
-    );
+        );
+    }
 };
 
 export default BookDetails;
