@@ -6,11 +6,17 @@ import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
-    //const [rating, setRating] = useState("");
     const [books, setBooks] = useState([]);
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!category) {
+            setError("Du måste välja en genre innan du genererar böcker");
+            return;
+        }
+        setError("");
 
         try {
             const fetchedBooks = await generateBooks(category);
@@ -18,6 +24,7 @@ const BookForm = () => {
             console.log(fetchedBooks);
         } catch (error) {
             console.error(error);
+            setError("Något gick fel vid hämtningen av böcker.")
         }
     };
 
@@ -42,6 +49,7 @@ const BookForm = () => {
                     </div>
                 </div>
             </form>
+            {error && <p className={styles.error}>{error}</p>}
             {books.length > 0 && (
                 <div>
                     <BookDetails books={books}/>
