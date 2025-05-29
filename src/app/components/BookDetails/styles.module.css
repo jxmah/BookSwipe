@@ -48,6 +48,10 @@
     padding-left: 60px;
 }
 
+.chooseCategory {
+    visibility: hidden;
+}
+
 .divider {
     border-top: 1px solid #644B36;
     margin-left: 60px;
