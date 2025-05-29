@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+.message {
+    font-family: 'Inter', sans-serif;
+    color: #644B36;
+    text-align: center;
+}
+
+
+
 .bookLayout {
     display: flex;
     justify-content: space-between;

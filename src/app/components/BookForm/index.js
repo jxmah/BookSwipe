@@ -13,7 +13,7 @@ const BookForm = () => {
         e.preventDefault();
 
         if(!category) {
-            setError("Du måste välja en genre innan du genererar böcker");
+            setError("You must select a genre before generating books.");
             return;
         }
         setError("");
@@ -24,7 +24,7 @@ const BookForm = () => {
             console.log(fetchedBooks);
         } catch (error) {
             console.error(error);
-            setError("Något gick fel vid hämtningen av böcker.")
+            setError("Something went wrong while retrieving books.")
         }
     };
 
