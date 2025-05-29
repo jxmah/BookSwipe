@@ -7,17 +7,6 @@ const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
     const [saveShownIndex, setSaveShownIndex] = useState([]);
     const [likedBooks, setLikedBooks] = useState([]);
-
-    const [visibility, setVisibility] = useState("visibility: visible;");
-
-    const displayCategoryMessage = () => {
-        categoryMessage = styles.chooseCategory
-        if (books && books.length > 0) {
-            categoryMessage = setVisibility("visibility: hidden;")
-        } else {
-            categoryMessage = setVisibility("visibility: visible;")
-        }
-    }; 
     
     const showNextBook = () => {
         const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
@@ -53,13 +42,12 @@ const BookDetails = ({ books }) => {
             showNextBook();
         }
     }, [books]);
-    
 
-    if ((!books || books.length === 0) && !randomBook){
+    if (saveShownIndex = true){
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
-                    <h4 className={styles.chooseCategory}>Välj en kategori för att börja bläddra bland böcker</h4>
+                    <h4>Välj en kategori för att börja bläddra bland böcker</h4>
                 </div>
             </div>
         );
