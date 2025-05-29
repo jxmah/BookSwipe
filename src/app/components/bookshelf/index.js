@@ -1,6 +1,8 @@
 "use client";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const Bookshelf = ({ createList = [] }) => {
     const [masterList, setMasterList] = useState([]);
