@@ -8,9 +8,9 @@ const Bookshelf = () => {
     }, []);
 
     return (
-        <div className={styles.shelfWrapper}>
-            <div id="carouselExample" className="carousel slide">
-                <div className="container text-center">
+        <div id={styles.shelfWrapper}>
+            <div id="carouselExample" class="carousel slide">
+                <div class="container text-center">
                     <div className="row" id={styles.displayBooks}>
                         <div className="col">
                             Column-book-first
@@ -24,11 +24,11 @@ const Bookshelf = () => {
                     </div>
                 </div>
 
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style={{filter: "invert(0.7)"}}>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style={{filter: "invert(0.75)"}}>
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style={{filter: "invert(1)"}}>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style={{filter: "invert(0.75)"}}>
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
