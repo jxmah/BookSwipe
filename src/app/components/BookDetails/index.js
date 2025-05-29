@@ -33,6 +33,11 @@ const BookDetails = ({ books }) => {
     };
 
     useEffect(() => {
+        const savedBooks = JSON.parse(localStorage.getItem("likedBooks")) || [];
+        setLikedBooks(savedBooks);
+    }, []);
+
+    useEffect(() => {
         if (books && books.length > 0 && randomBook === null) {
             showNextBook();
         }
