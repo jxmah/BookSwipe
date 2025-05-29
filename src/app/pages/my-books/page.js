@@ -20,14 +20,10 @@ export default function MyBooks() {
     <div className={styles.container}>
       <Header></Header>
       <div id={styles.main} className="container">
-        <div id={styles.wrapper}>
-          <Bookshelf></Bookshelf>
-          <div id={styles.shelf}></div>
-        </div>
-        <div id={styles.listWrapper}>
-          <PopUpForm onAddList={handleAddList}></PopUpForm>
-          <CreatedListDisplay lists={lists}></CreatedListDisplay>
-        </div>
+        <Bookshelf></Bookshelf>
+        <div id={styles.shelf}></div>
+        <PopUpForm onAddList={handleAddList}></PopUpForm>
+        <CreatedListDisplay lists={lists}></CreatedListDisplay>
       </div>
     </div>
   );

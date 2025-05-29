@@ -2,8 +2,14 @@
 
 .createListBtn {
     background-color: #C58882;
-    margin-top: 25px;
-    margin-left: 2rem;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px 20px;
+    display: block;
+    border-radius: 50px;
+    font-size: 16pt;
+    font-family: 'Inter', sans-serif;
+    color: #644536;
 }
 
 .modalDialog {

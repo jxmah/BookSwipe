@@ -7,9 +7,9 @@ const CreatedListDisplay = ({ lists = [] }) => {
         <div className={styles.createdListsWrapper}>
             <ul className={styles.savedList}>
                 {lists.map((list, index) => (
-                    <li key={index}>
-                        <p>{list.name}</p>
-                        <p>{list.items.length} Book</p>
+                    <li className={styles.listItem} key={index}>
+                        <p className={styles.listName}>{list.name}</p>
+                        <p className={styles.itemsAmount}>{list.items.length} Book</p>
                     </li>
                 ))}
             </ul>

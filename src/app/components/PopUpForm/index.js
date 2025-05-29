@@ -38,53 +38,54 @@ const PopUpForm = ({ onAddList }) => {
     };
 
     return (
-        <div className={styles.wrapper}>
-            <Button variant="outline-secondary" className={styles.createListBtn} onClick={handleShow}>
+        <div>
+            <button className={styles.createListBtn} onClick={handleShow}>
                 Create List
-            </Button>
+            </button>
+            <div className={styles.wrapper}>
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    contentClassName={styles.modalContent}
+                    dialogClassName={styles.modalDialog}
+                >
+                    <Modal.Header closeButton className={styles.modalHeader}>
+                        <Modal.Title className={styles.modalTitle}>Create New List</Modal.Title>
+                    </Modal.Header>
 
-            <Modal
-                show={show}
-                onHide={handleClose}
-                contentClassName={styles.modalContent}
-                dialogClassName={styles.modalDialog}
-            >
-                <Modal.Header closeButton className={styles.modalHeader}>
-                    <Modal.Title className={styles.modalTitle}>Create New List</Modal.Title>
-                </Modal.Header>
-
-                <Modal.Body className={styles.modalBody}>
-                    <form className={styles.form} onSubmit={handleSubmit}>
-                        {error && (
-                            <div className="alert alert-danger" role="alert">
-                                {error}
+                    <Modal.Body className={styles.modalBody}>
+                        <form className={styles.form} onSubmit={handleSubmit}>
+                            {error && (
+                                <div className="alert alert-danger" role="alert">
+                                    {error}
+                                </div>
+                            )}
+                            <div className={`form-group ${styles.formGroup}`}>
+                                <label className={styles.modalLabel} htmlFor="newList">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    className={`form-control ${styles.modalInput}`}
+                                    id="newList"
+                                    placeholder="Favs..."
+                                    value={listName}
+                                    onChange={(e) => setListName(e.target.value)}
+                                />
                             </div>
-                        )}
-                        <div className={`form-group ${styles.formGroup}`}>
-                            <label className={styles.modalLabel} htmlFor="newList">
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                className={`form-control ${styles.modalInput}`}
-                                id="newList"
-                                placeholder="Favs..."
-                                value={listName}
-                                onChange={(e) => setListName(e.target.value)}
-                            />
-                        </div>
-                    </form>
-                </Modal.Body>
+                        </form>
+                    </Modal.Body>
 
-                <Modal.Footer className={styles.modalFooter}>
-                    <Button variant="secondary" className={styles.closeBtn} onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button className={styles.saveBtn} onClick={handleSubmit}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+                    <Modal.Footer className={styles.modalFooter}>
+                        <Button variant="secondary" className={styles.closeBtn} onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button className={styles.saveBtn} onClick={handleSubmit}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
         </div>
     );
 };
