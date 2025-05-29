@@ -1,26 +1,29 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 import styles from "../../page.module.css";;
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link'
-import Header from "../../components/header";
-import Bookshelf from "../../components/bookshelf";
-import CreatedListDisplay from "../../components/createdListDisplay";
+import Header from "../../components/Header";
+import Bookshelf from "../../components/Bookshelf";
+import PopUpForm from "../../components/PopUpForm";
+import ListDisplay from "../../components/ListDisplay";
 
 export default function MyBooks() {
+  const [lists, setLists] = useState([]);
+
+  const handleAddList = (newListName) => {
+    setLists(prevLists => [...prevLists, { name: newListName, items: [] }]);
+  };
+
   return (
     <div className={styles.container}>
       <Header></Header>
       <div id={styles.main} className="container">
-        <div id={styles.wrapper}>
-          <Bookshelf></Bookshelf>
-          <div id={styles.shelf}></div>
-        </div>
-
-        <div id={styles.listWrapper}>
-          <button id={styles.createList}>Create List</button>
-          <CreatedListDisplay></CreatedListDisplay>
-        </div>
-
+        <Bookshelf></Bookshelf>
+        <div id={styles.shelf}></div>
+        <PopUpForm onAddList={handleAddList}></PopUpForm>
+        <ListDisplay lists={lists}></ListDisplay>
       </div>
     </div>
   );

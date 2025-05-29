@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.createListBtn {
+    background-color: #C58882;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px 20px;
+    display: block;
+    border-radius: 50px;
+    font-size: 16pt;
+    font-family: 'Inter', sans-serif;
+    color: #644536;
+}
+
+.modalDialog {
+    background-color: rgba(100, 69, 54, 0.3);
+}
+
+.modalContent {
+    background-color: #F4EEE4;
+}
+
+.modalTitle {
+    color: #644536;
+    font-family: 'Inter', sans-serif;
+}
+
+.modalText {
+    color: #644536;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-control[placeholder] {
+    background-color: rgba(100, 69, 54, 0.5);
+}
+
+.saveBtn {
+    background-color: #C58882;
+    border: solid 0.5px #644B36;
+    color: #644536;
+    font-family: 'Inter', sans-serif;
+}

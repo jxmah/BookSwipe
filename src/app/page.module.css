@@ -31,6 +31,10 @@
     margin-right: 2rem;
 }
 
+#listWrapper {
+    display: flex;
+}
+
 #createList {
     text-decoration: none;
     color: #644536;
@@ -49,6 +53,6 @@
 
 #createdListsWrapper {
     display: flex;
-    
+
     margin: 3.5rem 2rem;
 }

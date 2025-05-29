@@ -1,17 +1,11 @@
-const BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
+const BASE_URL = 'https://api.nytimes.com/svc/books/v3/lists/current';
 const API_KEY = process.env.NEXT_PUBLIC_KEY;
 
-export const generateBooks = async (category, rating) => {
-    let bookFilter = ''; // where the query string is stored
-    if (category) { // if category is provided
-        bookFilter += `mainCategory:${category}`; // add it to the query string
-    }
+export const generateBooks = async (category) => {
 
-    if (rating) { // if rating is provided
-        bookFilter += `+averageRating:${rating}`; // add it to the query string
-    }
+    const url = `${BASE_URL}/${category}.json?api-key=${API_KEY}`;
 
-    const url = new URL(`${BASE_URL}?q=${bookFilter}&key=${API_KEY}&maxResults=5`); // create a new URL object
+    console.log("URL:", url);
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error("Failed to fetch data");
@@ -20,26 +14,24 @@ export const generateBooks = async (category, rating) => {
     const data = await response.json();
     console.log(data);
 
-    return (data.items || [])
+    return data.results.books
     .filter(book =>
-        book.id &&
-        book.volumeInfo?.title &&
-        book.volumeInfo?.authors?.[0] &&
-        book.volumeInfo?.publishedDate &&
-        book.volumeInfo?.imageLinks?.thumbnail
+        book.title &&
+        book.author &&
+        book.book_image
     )
     .map(book => ({
-        id: book.id,
-        title: book.volumeInfo.title,
-        author: book.volumeInfo.authors?.[0],
-        year: book.volumeInfo.publishedDate,
-        cover: book.volumeInfo.imageLinks?.thumbnail || '',
-        about: book.volumeInfo.description || 'No description available'
+        id: book.primary_isbn13,
+        title: book.title,
+        author: book.author,
+        year: "Recent",
+        cover: book.book_image,
+        about: book.description || 'No description available'
     })); 
     
 };
 
-export const getBookDetails = async (id) => { // id:et ska hämtas från generateBooks (fixar det senare)
+/*export const getBookDetails = async (id) => { // id:et ska hämtas från generateBooks (fixar det senare)
     const url = new URL(`${BASE_URL}/${id}?key=${API_KEY}`); // create a new URL object
     const response = await fetch(url);
     if (!response.ok) {
@@ -47,7 +39,7 @@ export const getBookDetails = async (id) => { // id:et ska hämtas från generat
     }
     const data = await response.json();
     return data;
-};
+};*/
 
 // google books json names
 // id for book id

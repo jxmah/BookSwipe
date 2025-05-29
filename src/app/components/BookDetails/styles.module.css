@@ -1,12 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+.bookLayout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 2rem auto;
+}
+
+.swipeArea {
+    touch-action: auto;
+}
+
+.bookCover img {
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .row {
     height: 90%;
 }
 
-.col-6 {
+.details {
     font-family: 'Inter', sans-serif;
     color: #644B36;
+    text-align: left;
+    margin-top: 2rem;
+    flex: 1;
+}
+
+.swipe {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 4rem;
+}
+
+.p {
+    font-size: medium;
 }
 
 .h4 {
@@ -21,6 +55,7 @@
 
 .cover {
     margin-top: 30px;
+    width: 200px;
 }
 
 .col-2 {
