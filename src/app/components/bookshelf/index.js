@@ -18,14 +18,12 @@ const Bookshelf = ({ createList = [] }) => {
     return (
         <div className={styles.shelfWrapper}>
             <div id="carouselExample" className="carousel slide">
-                <div className="container text-center">
-                    <ul>
-                        {masterList.map((book) => (
-                            <li className={styles.bookItem} key={book.id} >
-                                <img src={book.cover} alt={book.title} />
-                            </li>
-                        ))}
-                    </ul>
+                <div className={styles.carouselInner}>
+                    {masterList.map((book, index) => (
+                        <div id={styles.coverItem} className={(`carousel-item ${index === 0 ? "active" : ""}`)} key={book.id} >
+                            <img className={styles.cover} src={book.cover} alt={book.title} />
+                        </div>
+                    ))}
                 </div>
 
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style={{ filter: "invert(0.7)" }}>
