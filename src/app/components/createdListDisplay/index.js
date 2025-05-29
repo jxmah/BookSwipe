@@ -2,14 +2,18 @@
 import Link from 'next/link'
 import styles from "./styles.module.css";
 
-const CreatedListDisplay = () => {
+const CreatedListDisplay = ({ lists = [] }) => {
     return (
         <div className={styles.createdListsWrapper}>
-            <div className={styles.savedList}>
-                <h3 className={styles.listName}>List name</h3>
-                <p className={styles.bookCount}>x Books</p>
-            </div>
-        </div>  
+            <ul className={styles.savedList}>
+                {lists.map((list, index) => (
+                    <li key={index}>
+                        <p>{list.name}</p>
+                        <p>{list.items.length} Book</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 
