@@ -25,8 +25,8 @@ export default function DynamicListDisplay() {
             <div className="container">
                 <div className="row">
                     {lists?.items.map((book, index) => (
-                        <div className="col">
-                            <li key={index}>
+                        <div className="col" key={index}>
+                            <li>
                                 <img className={styles.cover} src={book.cover} alt={book.title}/>
                             </li>
                         </div>                     
