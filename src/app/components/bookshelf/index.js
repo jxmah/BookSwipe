@@ -12,7 +12,12 @@ const Bookshelf = () => {
 
         const savedBooks = localStorage.getItem("likedBooks");
         const masterList = JSON.parse(savedBooks);
-        setMasterList(masterList);
+
+        if (Array.isArray(masterList)) {
+            setMasterList(masterList);
+        } else {
+            setMasterList([]);
+        }
     }, []);
 
 

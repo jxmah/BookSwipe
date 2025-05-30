@@ -9,8 +9,8 @@ const ListDisplay = ({ lists = [] }) => {
         <div className={styles.createdListsWrapper}>
             <ul className={styles.savedList}>
                 {lists.map((list, index) => (
-                    <button className={styles.listItem} type="button" onClick={() => router.push(`/pages/my-books/${list.name}`)}>
-                        <li  key={index}>
+                    <button className={styles.listItem} key={index} type="button" onClick={() => router.push(`/pages/my-books/${list.name}`)}>
+                        <li key={index}>
                             <p className={styles.listName}>{list.name}</p>
                             <p className={styles.itemsAmount}>{list.items.length} Book</p>
                         </li>

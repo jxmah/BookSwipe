@@ -1,5 +1,10 @@
 .shelfWrapper {
     width: 100%;
+    min-height: 9.5rem;
+}
+
+.carousel {
+    min-height: 9.5rem;
 }
 
 .cover {
