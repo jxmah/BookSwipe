@@ -6,3 +6,20 @@
     margin-left: 2rem;
     margin-right: 2rem;
 }
+
+.row {
+    min-height: 9.5rem;
+}
+
+.cover {
+    max-height: 175px;
+}
+
+.savedList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-evenly;
+    padding: 20px 60px;
+    min-height: 9.5rem;
+}

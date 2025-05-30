@@ -8,7 +8,7 @@ import { useParams } from "next/navigation";
 
 export default function DynamicListDisplay() {
     const [lists, setLists] = useState();
-    const {listName} = useParams();
+    const { listName } = useParams();
 
     useEffect(() => {
         const storedLists = localStorage.getItem("lists");
@@ -20,21 +20,14 @@ export default function DynamicListDisplay() {
     }, [listName]);
 
     return (
-        <div className={styles.container}>
-            <ul className={styles.savedList}>
-            <div className="container">
-                <div className="row">
-                    {lists?.items.map((book, index) => (
-                        <div className="col" key={index}>
-                            <li>
-                                <img className={styles.cover} src={book.cover} alt={book.title}/>
-                            </li>
-                        </div>                     
-                    ))}
-                </div>
+        <div className={`${styles.container} overflow-auto`}>
+            <div className={styles.savedList}>
+                {lists?.items.map((book, index) => (
+                    <div key={index} className={styles.bookItem}>
+                        <img className={styles.cover} src={book.cover} alt={book.title} />
+                    </div>
+                ))}
             </div>
-            </ul>
-
             <div className={styles.shelf}></div>
         </div>
     )
