@@ -1,12 +1,7 @@
-.bookList {
-    display: flex;
+.shelfWrapper {
+    width: 100%;
 }
 
-.shelfWrapper{
-    height: 9.5rem;
+.cover {
+    height: 150px;
 }
-
-.carouselInner{
-    display: flex;
-}
-
