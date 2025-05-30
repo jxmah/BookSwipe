@@ -19,6 +19,7 @@ export default function DynamicListDisplay({ params }) {
     return (
         <div className={styles.container}>
             <p>Lorem ipsum</p>
+            <div className={styles.shelf}></div>
         </div>
     )
 }
