@@ -2,10 +2,12 @@
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ListDisplay from "../ListDisplay";
 
 
 const Bookshelf = () => {
     const [masterList, setMasterList] = useState([]);
+    const [lists, setLists] = useState([]);
 
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
@@ -13,14 +15,23 @@ const Bookshelf = () => {
         const savedBooks = localStorage.getItem("likedBooks");
         const masterList = JSON.parse(savedBooks);
 
+        const savedLists = localStorage.getItem("lists");
+        const storedLists = JSON.parse(savedLists);
+
         if (Array.isArray(masterList)) {
             setMasterList(masterList);
         } else {
             setMasterList([]);
         }
+
+        if (Array.isArray(storedLists)) {
+            setLists(storedLists);
+        } else {
+            setLists([]);
+        }
     }, []);
 
-
+    
 
     const bookRow = () => {
         const rows = [];
