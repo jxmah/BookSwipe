@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const PopUpForm = ({ onAddList }) => {
     const [show, setShow] = useState(false);
-    const [listName, setListName] = useState('');
+    const [listName, setListName] = useState([]);
     const [error, setError] = useState('')
 
     const handleClose = () => {
@@ -30,6 +30,17 @@ const PopUpForm = ({ onAddList }) => {
         if (listName.trim().length < 3) {
             setError('List name must be three characters at least.')
             return;
+        }
+
+        const lists = JSON.parse(localStorage.getItem("lists"));
+
+        if (lists) {
+            for (let i = 0; i < lists.length; i++) {
+                if (lists[i].name == listName.trim()) {
+                    setError('A list with that name already exists')
+                    return;
+                }
+            }
         }
 
         setError('');
