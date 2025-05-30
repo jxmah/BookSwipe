@@ -3,6 +3,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #main {
@@ -12,6 +13,7 @@
     height: 80vh;
     margin-top: 20px;
     padding: 20px;
+    min-height: 0;
 }
 
 /* -----------------------------------------my-books start-------------------------------------- */

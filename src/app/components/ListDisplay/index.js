@@ -5,8 +5,9 @@ import { useRouter } from 'next/navigation'
 
 const ListDisplay = ({ lists = [] }) => {
     const router = useRouter()
+
     return (
-        <div className={styles.createdListsWrapper}>
+        <div className={`${styles.createdListsWrapper} overflow-auto`}>
             <ul className={styles.savedList}>
                 {lists.map((list, index) => (
                     <button className={styles.listItem} key={index} type="button" onClick={() => router.push(`/pages/my-books/${list.name}`)}>
