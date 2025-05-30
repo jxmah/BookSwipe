@@ -30,6 +30,7 @@ const BookForm = () => {
 
     return (
         <div>
+            <h2 className={styles.header}>Select a genre to start browsing books</h2>
             <form onSubmit={handleSubmit} method="get" className="form-inline">
                 <div className={styles.row}>
                     <div className="col flex">

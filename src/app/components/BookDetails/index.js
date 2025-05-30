@@ -43,16 +43,8 @@ const BookDetails = ({ books }) => {
         }
     }, [books]);
 
-    if ((!books || books.length === 0) && !randomBook){
-        return (
-            <div className={styles.bookLayout}>
-                <div className={styles.details}>
-                    <h4>Select a genre to start browsing books.</h4>
-                </div>
-            </div>
-        );
-    }
-    if (saveShownIndex.length === books.length) {
+    
+    if (books && saveShownIndex.length === books.length) {
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
