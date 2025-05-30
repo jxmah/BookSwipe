@@ -16,20 +16,21 @@ export default function DynamicListDisplay() {
     }, []);
 
     return (
-
-
-
-
         <div className={styles.container}>
             <p>Lorem ipsum {lists.name}</p>
-
             <ul className={styles.savedList}>
-                {lists.map((list, index) => (
-                        <li key={index}>
-                            <p className={styles.listName}>{list.name}</p>
-                            <p className={styles.itemsAmount}>Först -- {list.items.length} Book--- Last</p>
-                        </li>
-                ))}
+            <div className="container">
+                <div className="row">
+                    
+                        {lists.map((list, index) => (
+                            <div className="col">
+                                <li key={index}>
+                                    <img className={styles.cover} src={list.cover} alt={list.title}/>
+                                </li>
+                            </div>                     
+                        ))}
+                </div>
+            </div>
             </ul>
 
             <div className={styles.shelf}></div>
