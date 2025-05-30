@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+.error {
+    color: rgb(174, 25, 45);
+    font-family: 'Inter', sans-serif;
+    font-size: large;
+    padding: 8px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.header {
+    font-family: 'Inter', sans-serif;
+    color: #403022;
+    text-align: center;
+    padding: 4px;
+    margin-bottom: 1rem;
+}
 .row {
     display: flex;
     justify-content: space-between;
@@ -31,6 +47,3 @@
     margin-left: auto;
 }
 
-.selectRating {
-    margin: auto;
-}

@@ -6,11 +6,17 @@ import BookDetails from "../BookDetails";
 
 const BookForm = () => {
     const [category, setCategory] = useState("");
-    //const [rating, setRating] = useState("");
     const [books, setBooks] = useState([]);
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!category) {
+            setError("You must select a genre before generating books.");
+            return;
+        }
+        setError("");
 
         try {
             const fetchedBooks = await generateBooks(category);
@@ -18,11 +24,13 @@ const BookForm = () => {
             console.log(fetchedBooks);
         } catch (error) {
             console.error(error);
+            setError("Something went wrong while retrieving books.")
         }
     };
 
     return (
         <div>
+            <h2 className={styles.header}>Select a genre to start browsing books</h2>
             <form onSubmit={handleSubmit} method="get" className="form-inline">
                 <div className={styles.row}>
                     <div className="col flex">
@@ -42,6 +50,7 @@ const BookForm = () => {
                     </div>
                 </div>
             </form>
+            {error && <p className={styles.error}>{error}</p>}
             {books.length > 0 && (
                 <div>
                     <BookDetails books={books}/>

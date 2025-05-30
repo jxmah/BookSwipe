@@ -43,21 +43,13 @@ const BookDetails = ({ books }) => {
         }
     }, [books]);
 
-    if ((!books || books.length === 0) && !randomBook){
+    
+    if (books && saveShownIndex.length === books.length) {
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
-                    <h4>Välj en kategori för att börja bläddra bland böcker</h4>
-                </div>
-            </div>
-        );
-    }
-    if (saveShownIndex.length === books.length) {
-        return (
-            <div className={styles.bookLayout}>
-                <div className={styles.details}>
-                    <h4>Du har bläddrat igenom alla böcker inom denna kategorin</h4>
-                    <p>Prova gärna en annan kategori</p>
+                    <h4 className={styles.message}>You have browsed all books in this category</h4>
+                    <p className={styles.message}>Please try another category</p>
                 </div>
             </div>
         );
