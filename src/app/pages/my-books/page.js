@@ -11,17 +11,21 @@ import ListDisplay from "../../components/ListDisplay";
 
 export default function MyBooks() {
   const [lists, setLists] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const storedLists = localStorage.getItem("lists");
     if (storedLists) {
       setLists(JSON.parse(storedLists));
     }
+    setIsLoaded(true);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("lists", JSON.stringify(lists));
-  }, [lists]);
+    if (isLoaded) {
+      localStorage.setItem("lists", JSON.stringify(lists));
+    }
+  }, [lists, isLoaded]);
 
   const handleAddList = (newListName) => {
     setLists(prevLists => [...prevLists, { name: newListName, items: [] }]);
