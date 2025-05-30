@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-div.createdListsWrapper {
-    margin: 2rem;
+.createdListsWrapper {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
 }
 
 .savedList {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    margin-bottom: 20px;
 }
 
 .listItem {
