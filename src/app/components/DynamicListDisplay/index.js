@@ -7,10 +7,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 
 export default function DynamicListDisplay() {
-    const [lists, setLists] = useState({ 
-        name: "", 
-        items: [] 
-    });
+    const [lists, setLists] = useState();
     const {listName} = useParams();
 
     useEffect(() => {
@@ -27,7 +24,7 @@ export default function DynamicListDisplay() {
             <ul className={styles.savedList}>
             <div className="container">
                 <div className="row">
-                    {lists.items.map((book, index) => (
+                    {lists?.items.map((book, index) => (
                         <div className="col">
                             <li key={index}>
                                 <img className={styles.cover} src={book.cover} alt={book.title}/>
