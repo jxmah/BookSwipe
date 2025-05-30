@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import { useRouter } from 'next/navigation'
 
 const ListDisplay = ({ lists = [] }) => {
-    const router = useRouter()
+    const router = useRouter();
     return (
         <div className={styles.createdListsWrapper}>
             <ul className={styles.savedList}>
