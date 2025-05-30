@@ -22,8 +22,6 @@ export default function DynamicListDisplay() {
         }
     }, [listName]);
 
-    console.log(lists)
-
     return (
         <div className={styles.container}>
             <ul className={styles.savedList}>
