@@ -3,14 +3,17 @@
 .createdListsWrapper {
     width: 100%;
     overflow: hidden;
-    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .savedList {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 45px;
     margin-bottom: 20px;
+    padding-left: 0;
 }
 
 .listItem {
