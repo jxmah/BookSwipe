@@ -4,6 +4,8 @@ import Link from 'next/link'
 import styles from "../../../page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../../components/Header";
+import DynamicListDisplay from "../../../components/DynamicListDisplay";
+
  
 export default function ListName() {
    return (
@@ -12,6 +14,7 @@ export default function ListName() {
       <div id={styles.main} className="container">
         <h1>dynamic route</h1>
         <p>hejhej</p>
+        <DynamicListDisplay></DynamicListDisplay>
       </div>
     </div>
   )
