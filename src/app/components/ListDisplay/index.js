@@ -1,16 +1,20 @@
 'use client';
 import Link from 'next/link'
 import styles from "./styles.module.css";
+import { useRouter } from 'next/navigation'
 
 const ListDisplay = ({ lists = [] }) => {
+    const router = useRouter()
     return (
         <div className={styles.createdListsWrapper}>
             <ul className={styles.savedList}>
                 {lists.map((list, index) => (
-                    <li className={styles.listItem} key={index}>
-                        <p className={styles.listName}>{list.name}</p>
-                        <p className={styles.itemsAmount}>{list.items.length} Book</p>
-                    </li>
+                    <button className={styles.listItem} type="button" onClick={() => router.push(`/pages/my-books/${list.name}`)}>
+                        <li  key={index}>
+                            <p className={styles.listName}>{list.name}</p>
+                            <p className={styles.itemsAmount}>{list.items.length} Book</p>
+                        </li>
+                    </button>
                 ))}
             </ul>
         </div>
