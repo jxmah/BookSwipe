@@ -4,26 +4,46 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
-const Bookshelf = ({ createList = [] }) => {
+const Bookshelf = () => {
     const [masterList, setMasterList] = useState([]);
+
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
 
-        const saveLikedBooks = localStorage.getItem("likedBooks");
-        const updateMasterList = JSON.parse(saveLikedBooks);
-        setMasterList(updateMasterList);
-        localStorage.setItem("masterList", JSON.stringify(updateMasterList));
+        const savedBooks = localStorage.getItem("likedBooks");
+        const masterList = JSON.parse(savedBooks);
+        setMasterList(masterList);
     }, []);
+
+
+
+    const bookRow = () => {
+        const rows = [];
+        for (let i = 0; i < masterList.length; i += 3) {
+            rows.push(masterList.slice(i, i + 3));
+        }
+        return rows;
+    }
+
+    const rows = bookRow();
 
     return (
         <div className={styles.shelfWrapper}>
-            <div id="carouselExample" className="carousel slide">
-                <div className={styles.carouselInner}>
-                    {masterList.map((book, index) => (
-                        <div id={styles.coverItem} className={(`carousel-item ${index === 0 ? "active" : ""}`)} key={book.id} >
-                            <img className={styles.cover} src={book.cover} alt={book.title} />
+            <div id="carouselExample" className={`carousel slide ${styles.carousel}`}>
+                <div className={`carousel-inner ${styles.carouselInner}`}>
+
+                    {rows.map((row, index) => (
+                        <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
+                            <div className="row justify-content-center">
+                                {row.map((book) => (
+                                    <div className="col-4 d-flex justify-content-center" key={book.id}>
+                                        <img className={styles.cover} src={book.cover} alt={book.title} />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ))}
+
                 </div>
 
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style={{ filter: "invert(0.7)" }}>
@@ -35,7 +55,7 @@ const Bookshelf = ({ createList = [] }) => {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </div >
     );
 }
 
