@@ -42,7 +42,22 @@ const Bookshelf = () => {
                             <div className="row justify-content-center">
                                 {row.map((book) => (
                                     <div className="col-4 d-flex justify-content-center" key={book.id}>
-                                        <img className={styles.cover} src={book.cover} alt={book.title} />
+                                        <img 
+                                        className={styles.cover} 
+                                        src={book.cover} 
+                                        alt={book.title} 
+                                        draggable
+                                        style={{ cursor: "grab" }} 
+                                        onDragStart={(e) => {
+                                            e.dataTransfer.setData("book", JSON.stringify(book));
+
+                                            const dragImage = new Image();
+                                            dragImage.src = book.cover;
+                                            dragImage.onload = () => {
+                                                e.dataTransfer.setDragImage(dragImage, dragImage.width / 2, dragImage.height / 2);
+                                            }
+                                        }}
+                                        />
                                     </div>
                                 ))}
                             </div>
