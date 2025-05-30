@@ -47,7 +47,7 @@ const BookDetails = ({ books }) => {
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
-                    <h4>Select a category to start browsing books.</h4>
+                    <h4>Select a genre to start browsing books.</h4>
                 </div>
             </div>
         );
