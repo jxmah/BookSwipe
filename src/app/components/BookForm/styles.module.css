@@ -16,6 +16,7 @@
     padding: 4px;
     margin-bottom: 1rem;
 }
+
 .row {
     display: flex;
     justify-content: space-between;
@@ -47,3 +48,10 @@
     margin-left: auto;
 }
 
+@media screen and (max-width: 900px) {
+
+    .select,
+    .btn {
+        width: 150px;
+    }
+}

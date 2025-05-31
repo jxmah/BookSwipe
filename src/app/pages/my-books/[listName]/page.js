@@ -14,7 +14,7 @@ export default function ListName() {
   return (
     <div className={styles.container}>
       <Header></Header>
-      <div id={styles.main} className="container">
+      <div id={styles.main}>
         <h1 className={styles.selectedList}> {decodedListName.charAt(0).toUpperCase() + decodedListName.slice(1)}</h1>
         <DynamicListDisplay></DynamicListDisplay>
       </div>

@@ -21,8 +21,8 @@
 }
 
 .bookCover img {
-    width: 250px;
-    height: auto;
+    max-height: 340px;
+    min-height: 250px;
     object-fit: contain;
     display: block;
 }
@@ -63,7 +63,7 @@
 
 .cover {
     margin-top: 30px;
-    width: 200px;
+    min-height: 250px;
 }
 
 .col-2 {
@@ -76,4 +76,29 @@
 
 .swipeBtn {
     width: 100px;
+}
+
+@media screen and (max-width: 900px) {
+    .details {
+        margin-top: 0;
+        padding-left: 20px;
+    }
+
+    .h4 {
+        padding-left: 0;
+    }
+
+    .divider {
+        margin-left: 0;
+    }
+
+    .bookCover img {
+        margin-top: 0;
+        height: 250px;
+    }
+
+    .swipe {
+        justify-content: center;
+        margin: auto;
+    }
 }

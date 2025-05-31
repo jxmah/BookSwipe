@@ -8,7 +8,7 @@ export default function Swipe() {
   return (
     <div className={styles.container}>
       <Header></Header>
-      <div id={styles.main} className="container">
+      <div id={styles.main}>
         <BookForm></BookForm>
         <BookDetails></BookDetails>
       </div>

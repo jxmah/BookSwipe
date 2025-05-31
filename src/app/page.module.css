@@ -10,8 +10,8 @@
     background-color: #F4EEE4;
     border-radius: 20px;
     box-shadow: 0 0 10px #644B36;
-    height: 80vh;
-    margin-top: 20px;
+    height: 85vh;
+    margin: 0 50px 20px 50px;
     padding: 20px;
     min-height: 0;
     display: flex;
@@ -69,4 +69,13 @@
     margin: 1rem;
     text-align: center;
     font-size: 2.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    #main {
+        margin: 0;
+        border-radius: 0;
+        height: 100vh;
+        box-shadow: none;
+    }
 }

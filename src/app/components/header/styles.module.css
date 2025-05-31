@@ -29,8 +29,27 @@
     padding: 5px 20px;
     min-width: 150px;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .active {
     background-color: #E3D3BA;
+}
+
+@media screen and (max-width: 900px) {
+    .nav {
+        gap: 5px
+    }
+
+    .link {
+        font-size: 22px;
+        padding: 5px 8px;
+        width: 80px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
 }
