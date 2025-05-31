@@ -19,7 +19,6 @@ const ListDisplay = ({ lists = [], onDropBook }) => {
 
     console.log("felsökning på onDropBook: ", onDropBook);
     console.trace("onDropBook trace");
-
     return (
         <div className={`${styles.createdListsWrapper} overflow-auto`}>
             <ul className={styles.savedList}>
