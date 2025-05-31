@@ -9,15 +9,16 @@ import { useParams } from "next/navigation";
 export default function DynamicListDisplay() {
     const [lists, setLists] = useState();
     const { listName } = useParams();
+    const decodedListName = decodeURIComponent(listName)
 
     useEffect(() => {
         const storedLists = localStorage.getItem("lists");
         if (storedLists) {
             const parsedList = JSON.parse(storedLists);
-            const selectedList = parsedList.find(list => list.name === listName);
+            const selectedList = parsedList.find(list => list.name === decodedListName);
             setLists(selectedList)
         }
-    }, [listName]);
+    }, [decodedListName]);
 
     const bookRow = () => {
         const items = lists?.items || [];

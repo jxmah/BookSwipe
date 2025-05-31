@@ -6,14 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../../components/Header";
 import DynamicListDisplay from "../../../components/DynamicListDisplay";
 import { useParams } from "next/navigation";
- 
+
 export default function ListName() {
-  const {listName} = useParams();
-   return (
+  const { listName } = useParams();
+  const decodedListName = decodeURIComponent(listName)
+
+  return (
     <div className={styles.container}>
       <Header></Header>
       <div id={styles.main} className="container">
-        <h1 className={styles.selectedList}> {listName.charAt(0).toUpperCase() + listName.slice(1)}</h1>
+        <h1 className={styles.selectedList}> {decodedListName.charAt(0).toUpperCase() + decodedListName.slice(1)}</h1>
         <DynamicListDisplay></DynamicListDisplay>
       </div>
     </div>
