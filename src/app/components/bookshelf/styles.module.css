@@ -10,3 +10,17 @@
 .cover {
     max-height: 150px;
 }
+
+@media screen and (max-width: 500px) {
+    .cover {
+        max-height: 120px;
+    }
+
+    .shelfWrapper {
+        min-height: 8rem;
+    }
+
+    .carousel {
+        min-height: 8rem;
+    }
+}

@@ -49,3 +49,17 @@
         max-height: 150px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .cover {
+        max-height: 120px;
+    }
+
+    .bookRow {
+        min-height: 8rem;
+    }
+
+    .savedList {
+        min-height: 8rem;
+    }
+}

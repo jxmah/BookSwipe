@@ -55,3 +55,19 @@
         width: 150px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .header {
+        font-size: 16pt;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .select,
+    .btn {
+        font-size: 12pt;
+        margin-bottom: 10px;
+    }
+}

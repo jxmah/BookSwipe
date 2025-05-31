@@ -10,54 +10,60 @@ import PopUpForm from "../../components/PopUpForm";
 import ListDisplay from "../../components/ListDisplay";
 
 export default function MyBooks() {
-  const [lists, setLists] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+	const [lists, setLists] = useState([]);
+	const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    const storedLists = localStorage.getItem("lists");
-    if (storedLists) {
-      setLists(JSON.parse(storedLists));
-    }
-    setIsLoaded(true);
-  }, []);
+	useEffect(() => {
+		const storedLists = localStorage.getItem("lists");
+		if (storedLists) {
+		setLists(JSON.parse(storedLists));
+		}
+		setIsLoaded(true);
+	}, []);
 
-  useEffect(() => {
-    if (isLoaded) {
-      localStorage.setItem("lists", JSON.stringify(lists));
-    }
-  }, [lists, isLoaded]);
+	useEffect(() => {
+		if (isLoaded) {
+		localStorage.setItem("lists", JSON.stringify(lists));
+		}
+	}, [lists, isLoaded]);
 
-  const handleAddList = (newListName) => {
-    setLists(prevLists => [...prevLists, { name: newListName, items: [] }]);
-  };
+	const handleAddList = (newListName) => {
+		setLists(prevLists => [...prevLists, { name: newListName, items: [] }]);
+	};
 
-  const onDropBook = (listName, book) => {
-    setLists(prevLists => {
-      const updatedLists = prevLists.map(list => {
-        if (list.name === listName) {
-          const alreadyExists = list.items.some(item => item.id === book.id);
-          if (alreadyExists)
-            return list;
+	const onDropBook = (listName, book) => {
+		setLists(prevLists => {
+		const updatedLists = prevLists.map(list => {
+			if (list.name === listName) {
+			const alreadyExists = list.items.some(item => item.id === book.id);
+			if (alreadyExists)
+				return list;
 
-          return { ...list, items: [...list.items, book] };
-        }
-        return list;
-      });
+			return { ...list, items: [...list.items, book] };
+			}
+			return list;
+		});
 
-      localStorage.setItem("lists", JSON.stringify(updatedLists));
-      return updatedLists;
-    });
-  };
+		localStorage.setItem("lists", JSON.stringify(updatedLists));
+		return updatedLists;
+		});
+	};
 
-  return (
-    <div className={styles.container}>
-      <Header></Header>
-      <div id={styles.main}>
-        <Bookshelf lists={lists} onDropBook={onDropBook}></Bookshelf>
-        <div id={styles.shelf}></div>
-        <PopUpForm onAddList={handleAddList}></PopUpForm>
-        <ListDisplay lists={lists} onDropBook={onDropBook}></ListDisplay>
-      </div>
-    </div >
-  );
+	const handleDeleteList = (listToDelete) => {
+		const updatedLists = lists.filter(list => list.name !== listToDelete);
+		setLists(updatedLists);
+		localStorage.setItem("lists", JSON.stringify(updatedLists));
+	}
+
+	return (
+		<div className={styles.container}>
+		<Header></Header>
+		<div id={styles.main}>
+			<Bookshelf lists={lists} onDropBook={onDropBook}></Bookshelf>
+			<div id={styles.shelf}></div>
+			<PopUpForm onAddList={handleAddList}></PopUpForm>
+			<ListDisplay lists={lists} onDropBook={onDropBook} onDeleteList={handleDeleteList}></ListDisplay>
+		</div>
+		</div >
+	);
 }
