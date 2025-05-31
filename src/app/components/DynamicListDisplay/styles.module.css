@@ -5,10 +5,15 @@
     height: 0.9rem;
     margin-left: 2rem;
     margin-right: 2rem;
+    margin-top: 15px;
 }
 
-.row {
+.bookRow {
     min-height: 9.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10%;
 }
 
 .cover {
@@ -17,9 +22,9 @@
 
 .savedList {
     display: flex;
-    flex-wrap: wrap;
-    gap: 60px;
+    flex-direction: column;
+    row-gap: 60px;
     justify-content: space-evenly;
-    padding: 20px 60px;
+    padding: 20px 2%;
     min-height: 9.5rem;
 }

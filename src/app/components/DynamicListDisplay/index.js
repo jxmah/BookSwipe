@@ -19,16 +19,33 @@ export default function DynamicListDisplay() {
         }
     }, [listName]);
 
+    const bookRow = () => {
+        const items = lists?.items || [];
+        const rows = [];
+        for (let i = 0; i < items.length; i += 3) {
+            rows.push(items.slice(i, i + 3));
+        }
+        return rows;
+    }
+
+    const rows = bookRow();
+
     return (
         <div className={`${styles.container} overflow-auto`}>
             <div className={styles.savedList}>
-                {lists?.items.map((book, index) => (
-                    <div key={index} className={styles.bookItem}>
-                        <img className={styles.cover} src={book.cover} alt={book.title} />
+                {rows.map((row, index) => (
+                    <div key={index}>
+                        <div className={styles.bookRow}>
+                            {row.map((book, bookIndex) => (
+                                <div key={bookIndex} className={styles.bookItem}>
+                                    <img className={styles.cover} src={book.cover} alt={book.title} />
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.shelf}></div>
                     </div>
                 ))}
             </div>
-            <div className={styles.shelf}></div>
         </div>
     )
 }
