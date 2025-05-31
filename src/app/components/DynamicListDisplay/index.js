@@ -39,7 +39,12 @@ export default function DynamicListDisplay() {
                         <div className={styles.bookRow}>
                             {row.map((book, bookIndex) => (
                                 <div key={bookIndex} className={styles.bookItem}>
-                                    <img className={styles.cover} src={book.cover} alt={book.title} />
+                                    <img className={styles.cover} src={book.cover} alt={book.title}/>
+                                    <div className={styles.btnWrapper}>
+                                        <button className={styles.deleteBtn}>
+                                            <img src="../../images/x.png"/>
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
                         </div>
