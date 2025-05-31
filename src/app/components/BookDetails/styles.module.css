@@ -102,3 +102,22 @@
         margin: auto;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .bookLayout {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .details {
+        width: 100%;
+    }
+
+    .swipeBtn {
+        width: 60px;
+    }
+
+    .bookCover img {
+        height: 120px;
+    }
+}

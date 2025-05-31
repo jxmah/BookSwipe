@@ -49,3 +49,14 @@
         row-gap: 20px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .listItem {
+        width: 75%;
+    }
+
+    .savedList {
+        justify-content: center;
+        padding: 0;
+    }
+}
