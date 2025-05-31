@@ -49,6 +49,12 @@ export default function MyBooks() {
 		});
 	};
 
+	const handleDeleteList = (listToDelete) => {
+		const updatedLists = lists.filter(list => list.name !== listToDelete);
+		setLists(updatedLists);
+		localStorage.setItem("lists", JSON.stringify(updatedLists));
+	}
+
 	return (
 		<div className={styles.container}>
 		<Header></Header>
@@ -56,7 +62,7 @@ export default function MyBooks() {
 			<Bookshelf lists={lists} onDropBook={onDropBook}></Bookshelf>
 			<div id={styles.shelf}></div>
 			<PopUpForm onAddList={handleAddList}></PopUpForm>
-			<ListDisplay lists={lists} onDropBook={onDropBook}></ListDisplay>
+			<ListDisplay lists={lists} onDropBook={onDropBook} onDeleteList={handleDeleteList}></ListDisplay>
 		</div>
 		</div >
 	);
