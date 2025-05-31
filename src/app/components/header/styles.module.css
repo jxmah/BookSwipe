@@ -44,8 +44,7 @@
 
     .link {
         font-size: 22px;
-        padding: 5px 8px;
-        width: 80px;
+        min-width: 60px;
         text-align: center;
     }
 

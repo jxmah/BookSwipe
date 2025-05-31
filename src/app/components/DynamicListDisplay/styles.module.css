@@ -28,3 +28,9 @@
     padding: 20px 2%;
     min-height: 9.5rem;
 }
+
+@media screen and (max-width: 900px) {
+    .cover {
+        max-height: 150px;
+    }
+}

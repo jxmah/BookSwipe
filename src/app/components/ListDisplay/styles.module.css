@@ -38,3 +38,14 @@
     font-family: 'Inter', sans-serif;
     font-size: 13pt;
 }
+
+@media screen and (max-width: 900px) {
+    .listItem {
+        width: 40%;
+    }
+
+    .savedList {
+        gap: 15%;
+        row-gap: 20px;
+    }
+}
