@@ -49,6 +49,7 @@
 
 .p {
     font-size: medium;
+    padding-left: 60px;
 }
 
 .h4 {
@@ -85,6 +86,9 @@
     }
 
     .h4 {
+        padding-left: 0;
+    }
+    .p {
         padding-left: 0;
     }
 

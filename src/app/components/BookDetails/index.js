@@ -62,7 +62,8 @@ const BookDetails = ({ books }) => {
                     <h4 className={styles.h4}>Author: {randomBook.author}</h4>
                     <h4 className={styles.h4}>Year: {randomBook.year}</h4>
                     <hr className={styles.divider} />
-                    <h4 className={`${styles.h4} ${styles.about}`}>About: <p className={styles.p}>{randomBook.about}</p></h4>
+                    <h4 className={`${styles.h4} ${styles.about}`}>About: </h4>
+                    <p className={styles.p}>{randomBook.about}</p>
                     <p></p>
                 </div>
                 
