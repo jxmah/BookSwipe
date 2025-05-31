@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styles from "./styles.module.css";
 import { useRouter } from 'next/navigation'
 
-const ListDisplay = ({ lists = [], onDropBook }) => {
+const ListDisplay = ({ lists = [], onDropBook, onDeleteList }) => {
     const router = useRouter();
 
     const handleDrop = (e, listName) => {
@@ -32,7 +32,19 @@ const ListDisplay = ({ lists = [], onDropBook }) => {
                         onDrop={(e) => handleDrop(e, list.name)}
                     >
                         <li key={index}>
-                            <p className={styles.listName}>{list.name}</p>
+                            <div className={styles.listContent}>
+                                <p className={styles.listName}>{list.name}</p>
+                                <span
+                                className={styles.deleteBtn}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onDeleteList(list.name);
+                                }}
+                                
+                                >
+                                X
+                                </span>
+                            </div>
                             <p className={styles.itemsAmount}>{list.items.length} Book</p>
                         </li>
                     </button>
