@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 
-export default function DynamicListDisplay({ deleteBook}) {
+export default function DynamicListDisplay({ deleteBook }) {
     const [lists, setLists] = useState();
     const { listName } = useParams();
     const decodedListName = decodeURIComponent(listName);
@@ -29,7 +29,7 @@ export default function DynamicListDisplay({ deleteBook}) {
         }
         return rows;
     }
-    
+
     const rows = bookRow();
 
     return (
@@ -39,7 +39,7 @@ export default function DynamicListDisplay({ deleteBook}) {
                     <div key={index}>
                         <div className={styles.bookRow}>
                             {row.map((book, bookIndex) => (
-                                <div key={bookIndex} className={styles.bookItem} style={{display:hideBook.includes(book.id) ? "none" : "block"}}>
+                                <div key={bookIndex} className={styles.bookItem} style={{ display: hideBook.includes(book.id) ? "none" : "block" }}>
                                     <img className={styles.cover} src={book.cover} alt={book.title} />
                                     <div className={styles.btnWrapper}>
                                         <button className={styles.deleteBtn} onClick={(e) => {
