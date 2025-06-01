@@ -18,6 +18,10 @@
     gap: 35px;
 }
 
+.logoLink{
+    text-decoration: none;
+}
+
 .link {
     text-decoration: none;
     background-color: #C58882;
