@@ -6,10 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 
-export default function DynamicListDisplay() {
+export default function DynamicListDisplay({ deleteBook}) {
     const [lists, setLists] = useState();
     const { listName } = useParams();
-    const decodedListName = decodeURIComponent(listName)
+    const decodedListName = decodeURIComponent(listName);
+    const [hideBook, setHideBook] = useState([]);
 
     useEffect(() => {
         const storedLists = localStorage.getItem("lists");
@@ -28,7 +29,7 @@ export default function DynamicListDisplay() {
         }
         return rows;
     }
-
+    
     const rows = bookRow();
 
     return (
@@ -38,11 +39,15 @@ export default function DynamicListDisplay() {
                     <div key={index}>
                         <div className={styles.bookRow}>
                             {row.map((book, bookIndex) => (
-                                <div key={bookIndex} className={styles.bookItem}>
-                                    <img className={styles.cover} src={book.cover} alt={book.title}/>
+                                <div key={bookIndex} className={styles.bookItem} style={{display:hideBook.includes(book.id) ? "none" : "block"}}>
+                                    <img className={styles.cover} src={book.cover} alt={book.title} />
                                     <div className={styles.btnWrapper}>
-                                        <button className={styles.deleteBtn}>
-                                            <img src="../../images/x.png"/>
+                                        <button className={styles.deleteBtn} onClick={(e) => {
+                                            e.stopPropagation();
+                                            setHideBook([...hideBook, book.id]);
+                                            deleteBook(lists.name, book.id);
+                                        }}>
+                                            <img src="../../images/x.png" />
                                         </button>
                                     </div>
                                 </div>
