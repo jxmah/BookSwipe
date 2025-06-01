@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            <h1 className={styles.logo}>BookSwipe</h1>
+            <Link className={styles.logoLink} href="/"><h1 className={styles.logo}>BookSwipe</h1></Link>
             <nav className={styles.nav}>
                 <Link className={`${styles.link} ${pathname === '/' ? styles.active : ''}`} href="/">Swipe</Link>
                 <Link className={`${styles.link} ${pathname === '/pages/my-books' ? styles.active : ''}`} href="/pages/my-books">My Books</Link>
