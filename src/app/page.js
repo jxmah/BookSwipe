@@ -10,7 +10,6 @@ export default function Swipe() {
       <Header></Header>
       <div id={styles.main}>
         <BookForm></BookForm>
-        <BookDetails></BookDetails>
       </div>
     </div>
   );
