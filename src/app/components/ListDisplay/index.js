@@ -42,7 +42,7 @@ const ListDisplay = ({ lists = [], onDropBook, onDeleteList }) => {
                                 }}
                                 
                                 >
-                                X
+                                <img src="../../images/x.png" />
                                 </span>
                             </div>
                             <p className={styles.itemsAmount}>{list.items.length} Book</p>
