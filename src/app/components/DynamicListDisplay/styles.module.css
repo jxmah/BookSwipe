@@ -16,16 +16,20 @@
     padding: 0 10%;
 }
 
+.cover {
+    max-height: 175px;
+}
+
 .bookItem {
     position: relative;
     max-width: 100%;
 }
 
-.bookItem button{
+.bookItem button {
     position: absolute;
     top: 0;
     right: 0;
-    
+
     background-color: #C58882;
     color: #644536;
     display: flex;

@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const PopUpForm = ({ onAddList }) => {
     const [show, setShow] = useState(false);
-    const [listName, setListName] = useState([]);
+    const [listName, setListName] = useState('');
     const [error, setError] = useState('')
 
     const handleClose = () => {
