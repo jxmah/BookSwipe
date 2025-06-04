@@ -95,6 +95,10 @@
         gap: 0.5rem;
     }
 
+    .bookLayout {
+        justify-content: center;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
