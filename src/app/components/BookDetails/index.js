@@ -7,10 +7,10 @@ const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
     const [saveShownIndex, setSaveShownIndex] = useState([]);
     const [likedBooks, setLikedBooks] = useState([]);
-    
+
     const showNextBook = () => {
         const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
-        
+
         if (getAvailableIndex.length === 0) {
             setRandomBook(null);
             return;
@@ -43,7 +43,6 @@ const BookDetails = ({ books }) => {
         }
     }, [books]);
 
-    
     if (books && saveShownIndex.length === books.length) {
         return (
             <div className={styles.bookLayout}>
@@ -66,13 +65,13 @@ const BookDetails = ({ books }) => {
                     <p className={styles.p}>{randomBook.about}</p>
                     <p></p>
                 </div>
-                
+
                 <div className={styles.swipe}>
-                    <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn}/> 
+                    <img src="./images/x.png" alt="Dislike" className={styles.swipeBtn} />
                     <motion.div
                         className={styles.bookCover}
                         drag="x"
-                        dragConstraints={{ left: -300, right: 300}}
+                        dragConstraints={{ left: -300, right: 300 }}
                         dragElastic={0.3}
                         style={{ cursor: "grab" }}
                         key={randomBook.id}
@@ -86,15 +85,15 @@ const BookDetails = ({ books }) => {
                                 handleSwipe("left");
                             }
                         }}
-                        >
+                    >
                         <img
                             className={styles.cover}
-                            src={randomBook.cover} 
+                            src={randomBook.cover}
                             alt={randomBook.title}
                             draggable={false}
                         />
                     </motion.div>
-                    <img src="./images/heart.png" alt="Like" className={styles.swipeBtn}/>                      
+                    <img src="./images/heart.png" alt="Like" className={styles.swipeBtn} />
                 </div>
             </div>
         );

@@ -56,7 +56,6 @@ const BookForm = () => {
                     <BookDetails books={books}/>
                 </div>
             )}
-            
         </div>
     );
 };

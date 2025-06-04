@@ -1,9 +1,7 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "../../page.module.css";;
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Link from 'next/link'
 import Header from "../../components/Header";
 import Bookshelf from "../../components/Bookshelf";
 import PopUpForm from "../../components/PopUpForm";

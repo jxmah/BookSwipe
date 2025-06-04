@@ -1,6 +1,4 @@
 'use client'
-import Image from "next/image";
-import Link from 'next/link'
 import styles from "./styles.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from "react";

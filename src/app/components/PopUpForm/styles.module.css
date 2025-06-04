@@ -12,7 +12,7 @@
     color: #644536;
 }
 
-.modalDialog {
+div.modalDialog {
     background-color: rgba(100, 69, 54, 0.3);
 }
 
@@ -58,7 +58,6 @@ input.modalInput:focus{
 
 input.modalInput::placeholder {
     color:#644536a9;
-
 }
 
 .modalContent > div.modalFooter,

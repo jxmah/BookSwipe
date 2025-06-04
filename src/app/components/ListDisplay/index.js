@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link'
 import styles from "./styles.module.css";
 import { useRouter } from 'next/navigation'
 
@@ -35,14 +34,13 @@ const ListDisplay = ({ lists = [], onDropBook, onDeleteList }) => {
                             <div className={styles.listContent}>
                                 <p className={styles.listName}>{list.name}</p>
                                 <span
-                                className={styles.deleteBtn}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    onDeleteList(list.name);
-                                }}
-                                
+                                    className={styles.deleteBtn}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onDeleteList(list.name);
+                                    }}
                                 >
-                                <img src="../../images/x.png" />
+                                    <img src="../../images/x.png" />
                                 </span>
                             </div>
                             <p className={styles.itemsAmount}>{list.items.length} Book</p>

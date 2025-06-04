@@ -1,6 +1,4 @@
 'use client'
-import Image from "next/image";
-import Link from 'next/link'
 import styles from "../../../page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../../components/Header";
@@ -9,7 +7,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function ListName() {
-  const[list, setList] = useState([]);
+  const [list, setList] = useState([]);
   const { listName } = useParams();
   const decodedListName = decodeURIComponent(listName);
 
@@ -29,7 +27,7 @@ export default function ListName() {
       }
       return list;
     });
-   
+
     localStorage.setItem("lists", JSON.stringify(updatedList));
     setList(updatedList);
     return;
