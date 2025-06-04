@@ -16,16 +16,8 @@
     background-color: rgba(100, 69, 54, 0.3);
 }
 
-.modalContent {
+div.modalContent {
     background-color: #F4EEE4;
-}
-
-.modalTitle {
-    color: #644536;
-    font-family: 'Inter', sans-serif;
-}
-
-.modalText {
     color: #644536;
     font-family: 'Inter', sans-serif;
 }
@@ -34,9 +26,42 @@
     background-color: rgba(100, 69, 54, 0.5);
 }
 
-.saveBtn {
+button.saveBtn {
     background-color: #C58882;
     border: solid 0.5px #644B36;
     color: #644536;
     font-family: 'Inter', sans-serif;
+}
+
+button.saveBtn:hover {
+    background-color: #e8b0ab;
+    border: solid 0.5px #644B36;
+    color: #644536;
+    font-family: 'Inter', sans-serif;
+}
+
+.modalFooter > button.saveBtn:active {
+    background-color: #C58882;
+    border: solid 0.5px #644B36;
+    color: #644536;
+    font-family: 'Inter', sans-serif;
+}
+
+input.modalInput{
+    border-color: #644536;
+}
+
+input.modalInput:focus{
+    border-color: #644536;
+    box-shadow: 0 0 0 .25rem rgba(162, 96, 60, 0.25);;
+}
+
+input.modalInput::placeholder {
+    color:#644536a9;
+
+}
+
+.modalContent > div.modalFooter,
+.modalContent > .modalHeader{
+    border-color: #795442;
 }
