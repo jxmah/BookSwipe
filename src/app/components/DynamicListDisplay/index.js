@@ -41,15 +41,13 @@ export default function DynamicListDisplay({ deleteBook }) {
                             {row.map((book, bookIndex) => (
                                 <div key={bookIndex} className={styles.bookItem} style={{ display: hideBook.includes(book.id) ? "none" : "block" }}>
                                     <img className={styles.cover} src={book.cover} alt={book.title} />
-                                    <div className={styles.btnWrapper}>
-                                        <button className={styles.deleteBtn} onClick={(e) => {
-                                            e.stopPropagation();
-                                            setHideBook([...hideBook, book.id]);
-                                            deleteBook(lists.name, book.id);
-                                        }}>
-                                            <img src="../../images/x.png" />
-                                        </button>
-                                    </div>
+                                    <button className={styles.deleteBtn} onClick={(e) => {
+                                        e.stopPropagation();
+                                        setHideBook([...hideBook, book.id]);
+                                        deleteBook(lists.name, book.id);
+                                    }}>
+                                        <img src="../../images/x.png" />
+                                    </button>
                                 </div>
                             ))}
                         </div>

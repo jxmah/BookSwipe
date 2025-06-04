@@ -11,6 +11,25 @@
     max-height: 150px;
 }
 
+.childDiv {
+    position: relative;
+    max-width: 100%;
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-color: #C58882;
+    color: #644536;
+    display: flex;
+    justify-content: center;
+    margin: 0.3rem;
+    width: 1.2rem;
+    border-radius: 0.3rem;
+}
+
 @media screen and (max-width: 500px) {
     .cover {
         max-height: 120px;
