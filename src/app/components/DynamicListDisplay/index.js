@@ -6,20 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 
-export default function DynamicListDisplay({ deleteBook }) {
+export default function DynamicListDisplay({ list, deleteBook }) {
     const [lists, setLists] = useState();
     const { listName } = useParams();
     const decodedListName = decodeURIComponent(listName);
-    const [hideBook, setHideBook] = useState([]);
 
     useEffect(() => {
-        const storedLists = localStorage.getItem("lists");
-        if (storedLists) {
-            const parsedList = JSON.parse(storedLists);
-            const selectedList = parsedList.find(list => list.name === decodedListName);
-            setLists(selectedList)
-        }
-    }, [decodedListName]);
+        const selectedList = list.find(list => list.name === decodedListName);
+        setLists(selectedList)
+
+    }, [list, decodedListName]);
 
     const bookRow = () => {
         const items = lists?.items || [];
@@ -39,11 +35,10 @@ export default function DynamicListDisplay({ deleteBook }) {
                     <div key={index}>
                         <div className={styles.bookRow}>
                             {row.map((book, bookIndex) => (
-                                <div key={bookIndex} className={styles.bookItem} style={{ display: hideBook.includes(book.id) ? "none" : "block" }}>
+                                <div key={bookIndex} className={styles.bookItem}>
                                     <img className={styles.cover} src={book.cover} alt={book.title} />
                                     <button className={styles.deleteBtn} onClick={(e) => {
                                         e.stopPropagation();
-                                        setHideBook([...hideBook, book.id]);
                                         deleteBook(lists.name, book.id);
                                     }}>
                                         <img src="../../images/x.png" />
