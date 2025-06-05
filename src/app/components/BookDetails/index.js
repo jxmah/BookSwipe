@@ -5,20 +5,22 @@ import { motion } from 'framer-motion';
 
 const BookDetails = ({ books }) => {
     const [randomBook, setRandomBook] = useState(null);
-    const [saveShownIndex, setSaveShownIndex] = useState([]);
+    const [shownIds, setShownIds] = useState([]);
     const [likedBooks, setLikedBooks] = useState([]);
 
     const showNextBook = () => {
-        const getAvailableIndex = books.map((_, index) => index).filter(index => !saveShownIndex.includes(index));
+        const getAvailableBooks = books.filter((book) => !shownIds.includes(book.id));
 
-        if (getAvailableIndex.length === 0) {
+        if (getAvailableBooks.length === 0) {
             setRandomBook(null);
             return;
         }
-        const randomIndex = getAvailableIndex[Math.floor(Math.random() * getAvailableIndex.length)];
-        setRandomBook(books[randomIndex]);
-        setSaveShownIndex(previousValue => [...previousValue, randomIndex]);
-        console.log("saveShownIndex", saveShownIndex);
+        const randomIndex = Math.floor(Math.random() * getAvailableBooks.length);
+        const nextBook = getAvailableBooks[randomIndex];
+        
+        setRandomBook(nextBook);
+        setShownIds(previousValue => [...previousValue, nextBook.id]);
+    
     };
 
     const handleSwipe = (direction) => {
@@ -38,12 +40,14 @@ const BookDetails = ({ books }) => {
     }, []);
 
     useEffect(() => {
-        if (books && books.length > 0 && randomBook === null) {
+        if (books && books.length > 0 ) {
+            setShownIds([]);
+            setRandomBook(null);
             showNextBook();
         }
     }, [books]);
 
-    if (books && saveShownIndex.length === books.length) {
+    if (books && shownIds.length === books.length) {
         return (
             <div className={styles.bookLayout}>
                 <div className={styles.details}>
