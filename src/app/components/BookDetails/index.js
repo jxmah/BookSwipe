@@ -67,7 +67,6 @@ const BookDetails = ({ books }) => {
                     <hr className={styles.divider} />
                     <h4 className={`${styles.h4} ${styles.about}`}>About: </h4>
                     <p className={styles.p}>{randomBook.about}</p>
-                    <p></p>
                 </div>
 
                 <div className={styles.swipe}>
