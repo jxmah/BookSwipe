@@ -44,6 +44,9 @@ Vi valde React eftersom det kombinerar flexibilitet, prestanda och ett starkt ek
 Vid jämförelse med andra alternativ är Angular ett fullskaligt ramverk som levererar en omfattande struktur och inbyggda lösningar, det är ett kraftfullt ramverk och mer komplext [3]. Därför kände vi att detta innebar en brantare inlärningskurva än med React eller Vue. Vue däremot är ett progressivt ramverk som är enkelt att börja med och kan utökas vid behov [4]. Eftersom Vue inte har en lika brant inlärningskurva som Angular stod det främst mellan React och Vue. Vi valde slutligen React eftersom vi hade haft en föreläsning om det, så det kändes mer bekant. Något som också spelar stor roll till att vi slutligen valde React som bibliotek är att det finns mycket dokumentation och stort stöd på Internet på hur man använder det. Att React är ett populärt bibliotek som används mycket i branschen är också en av anledningarna till att vi valde React. 
 
 [1] GeeksforGeeks, “ReactJS Introduction,” 2025. [Online]. Tillgänglig: https://www.geeksforgeeks.org/reactjs-introduction/ (hämtad: 2025-06-02).
+
 [2]S. Surve, “Why use React for web development,” freeCodeCamp, [Online]. Feb. 18. 2021. Tillgänglig: https://www.freecodecamp.org/news/why-use-react-for-web-development/ (hämtad: 2025-06-01).
+
 [3] GeeksforGeeks, “Introduction to AngularJS,” 2024. [Online]. Tillgänglig: https://www.geeksforgeeks.org/introduction-to-angularjs/ (hämtad: 2025-06-01).
+
 [4] GeeksforGeeks, “Vues.js Introduction & Installation,” 2024. [Online]. Tillgänglig: https://www.geeksforgeeks.org/vue-js-introduction-installation/ (hämtad: 2025-06-01).
