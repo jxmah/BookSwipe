@@ -36,7 +36,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## Beskrivning av projekt
-BookSwipe är en webbapplikation för den som börja läsa eller som behöver inspiration till att hitta nya böcker. På BookSwipe kan du swipa på böcker för att lägga till de i en lista. Swipa höger på böcker man vill läsa och swipa vänster för de man inte vill läsa. Böckerna sparas i en masterlist, och webbapplikationen erbjuder även att man kan skapa sublistor för att kunna kategorisera böckerna man gillat. Man kan även radera individuella böcker från listor eller hela listor. 
+BookSwipe är en webbapplikation för den som börja läsa eller som behöver inspiration till att hitta nya böcker. På BookSwipe kan du swipa på böcker för att lägga till de i en lista. Swipa höger på böcker man vill läsa och swipa vänster för de man inte vill läsa. Böckerna sparas i en masterlist, och webbapplikationen erbjuder även att man kan skapa sublistor för att kunna kategorisera böckerna man gillat. Man kan även radera individuella böcker från listor eller radera hela listor. 
 
 ## React Motivering
 Vi valde React eftersom det kombinerar flexibilitet, prestanda och ett starkt ekosystem [1]. Reacts komponentbaserad arkitektur gör det enkelt att återanvända kod och bygga skalbara användargränssnitt. Enligt [2] är React enkelt att komma igång med, har ett stort community och används av många stora aktörer såsom Facebook. Detta garanterar fortsatt utveckling och support. 
