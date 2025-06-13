@@ -100,5 +100,5 @@ const PopUpForm = ({ onAddList }) => {
         </div>
     );
 };
-
+ 
 export default PopUpForm;
