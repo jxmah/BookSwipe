@@ -1,7 +1,7 @@
 'use client'
 import styles from "../../../page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "../../../components/Header2";
+import Header from "../../../components/Header";
 import DynamicListDisplay from "../../../components/DynamicListDisplay";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
