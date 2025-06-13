@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/Header";
+import Header from "./components/Header2";
 import BookForm from "./components/BookForm";
 
 export default function Swipe() {

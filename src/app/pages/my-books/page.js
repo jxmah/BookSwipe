@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 import styles from "../../page.module.css";;
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "../../components/Header";
-import Bookshelf from "../../components/Bookshelf";
+import Header from "../../components/Header2";
+import Bookshelf from "../../components/Bookshelf2";
 import PopUpForm from "../../components/PopUpForm";
 import ListDisplay from "../../components/ListDisplay";
 
