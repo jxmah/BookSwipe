@@ -10,7 +10,7 @@ npm install
 
 2. Create a .env file:
 
-- In the root of the project create a file and named .env
+- In the root of the project create a file named .env
 - Add your environment variable like this:
     NEXT_PUBLIC_KEY=your_actual_api_key
 
