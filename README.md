@@ -2,7 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+1. Install the dependencies:
+
+```bash
+npm install
+``` 
+
+2. Create a .env file:
+
+- In the root of the project create a file and named .env
+- Add your environment variable like this:
+    NEXT_PUBLIC_KEY=your_actual_api_key
+
+    Replace your_actual_api_key with your real API key
+
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -36,9 +51,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## Beskrivning av projekt
+
 BookSwipe är en webbapplikation för den som börja läsa eller som behöver inspiration till att hitta nya böcker. På BookSwipe kan du swipa på böcker för att lägga till de i en lista. Swipa höger på böcker man vill läsa och swipa vänster för de man inte vill läsa. Böckerna sparas i en masterlist, och webbapplikationen erbjuder även att man kan skapa sublistor för att kunna kategorisera böckerna man gillat. Man kan även radera individuella böcker från listor eller radera hela listor. 
 
 ## React Motivering
+
 Vi valde React eftersom det kombinerar flexibilitet, prestanda och ett starkt ekosystem [1]. Reacts komponentbaserad arkitektur gör det enkelt att återanvända kod och bygga skalbara användargränssnitt. Enligt [2] är React enkelt att komma igång med, har ett stort community och används av många stora aktörer såsom Facebook. Detta garanterar fortsatt utveckling och support. 
 
 Vid jämförelse med andra alternativ är Angular ett fullskaligt ramverk som levererar en omfattande struktur och inbyggda lösningar, det är ett kraftfullt ramverk och mer komplext [3]. Därför kände vi att detta innebar en brantare inlärningskurva än med React eller Vue. Vue däremot är ett progressivt ramverk som är enkelt att börja med och kan utökas vid behov [4]. Eftersom Vue inte har en lika brant inlärningskurva som Angular stod det främst mellan React och Vue. Vi valde slutligen React eftersom vi hade haft en föreläsning om det, så det kändes mer bekant. Något som också spelar stor roll till att vi slutligen valde React som bibliotek är att det finns mycket dokumentation och stort stöd på Internet på hur man använder det. Att React är ett populärt bibliotek som används mycket i branschen är också en av anledningarna till att vi valde React. 
