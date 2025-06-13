@@ -16,6 +16,8 @@ npm install
 
     Replace your_actual_api_key with your real API key
 
+    BookSwipe uses New York Times Book API, you can get a free API key from https://developer.nytimes.com/
+
 
 3. Run the development server:
 
@@ -52,7 +54,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Beskrivning av projekt
 
-BookSwipe är en webbapplikation för den som börja läsa eller som behöver inspiration till att hitta nya böcker. På BookSwipe kan du swipa på böcker för att lägga till de i en lista. Swipa höger på böcker man vill läsa och swipa vänster för de man inte vill läsa. Böckerna sparas i en masterlist, och webbapplikationen erbjuder även att man kan skapa sublistor för att kunna kategorisera böckerna man gillat. Man kan även radera individuella böcker från listor eller radera hela listor. 
+BookSwipe är en webbapplikation för den som vill börja läsa eller som behöver inspiration till att hitta nya böcker. På BookSwipe kan du swipa på böcker för att lägga till de i en lista. Swipa höger på böcker man vill läsa och swipa vänster för de man inte vill läsa. Böckerna sparas i en masterlist, och webbapplikationen erbjuder även att man kan skapa sublistor för att kunna kategorisera böckerna man gillat. Man kan även radera individuella böcker från listor eller radera hela listor. 
+
+BookSwipe använder sig utav New York Times Book API. 
 
 ## React Motivering
 
